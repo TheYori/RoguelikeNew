@@ -4,12 +4,12 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Roguelike
 {
-    public class Game1 : Game
+    public class GameManager : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        public Game1()
+        public GameManager()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
