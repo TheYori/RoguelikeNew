@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,6 +8,6 @@ namespace Roguelike.Class.World.DungeonContent
     class Platform : Environment
     {
 
-        public Platform(Theme theme) : base(theme) { }
+        public Platform(Vector2 Position):base(Position){ }
     }
 }

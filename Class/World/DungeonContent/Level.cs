@@ -1,23 +1,39 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using Roguelike.Class.World.tempClass;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Roguelike.Class.World
 {
-    class Level : Dungeon
+
+    class Level : GameObject
     {
 
-        public Level(Theme theme):base( theme)
+        private Rectangle borderSize;
+        private List<Environment> enviromentList;
+
+
+        public Level(int mapSizeWidth, int mapSizeHeight, DummyPlayer player, List<Environment> enviromentList)
         {
-           
+            borderSize = new Rectangle(0, 0, mapSizeWidth, mapSizeHeight);
+            this.enviromentList = enviromentList;
         }
 
-        public void initiateLevel() {
-        
+        public override void LoadContent(ContentManager content)
+        {
+
 
         }
 
-        public void Update()
+        public override void onCollision(GameObject gameObject)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Update(GameTime gameTime)
         {
 
         }
