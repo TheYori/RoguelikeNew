@@ -37,6 +37,30 @@
 /processorParam:TextureFormat=Color
 /build:../../../Assets/placeholder graphic/ScienceLabBackDrop.png;ScienceLabBackDrop.png
 
+#begin 1player_walk_Placeholder.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:1player_walk_Placeholder.png
+
+#begin 2player_walk_Placeholder.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:2player_walk_Placeholder.png
+
 #begin platFormDummyNormalSize.png
 /importer:TextureImporter
 /processor:TextureProcessor
