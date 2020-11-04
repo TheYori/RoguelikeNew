@@ -6,5 +6,7 @@ namespace Roguelike.Class.World.DungeonContent
 {
     class Portal : Environment
     {
+
+        public Portal(Theme theme) : base(theme) { }
     }
 }

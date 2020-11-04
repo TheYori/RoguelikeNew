@@ -4,10 +4,15 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Roguelike
 {
+    public enum Theme { tempel, science }
+
     public class GameManager : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+
+        protected Vector2 position;
+        protected Rectangle collisionBox;
 
         public GameManager()
         {

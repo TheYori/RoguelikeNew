@@ -6,5 +6,7 @@ namespace Roguelike.Class.World.DungeonContent
 {
     class Platform : Environment
     {
+
+        public Platform(Theme theme) : base(theme) { }
     }
 }
