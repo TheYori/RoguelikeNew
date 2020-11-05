@@ -10,6 +10,19 @@ namespace Roguelike.Class
     public class Unit : GameObject
     {
         protected Vector2 velocity;
+        protected float speed;
+
+        protected void Move(GameTime gameTime)
+        {
+            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (velocity.Length() != 0)
+            {
+
+                position += ((velocity * speed) * deltaTime);
+
+            }
+        }
 
         public override void LoadContent(ContentManager content)
         {

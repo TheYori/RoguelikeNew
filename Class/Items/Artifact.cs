@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Roguelike.Class
+namespace Roguelike.Class.Items
 {
-    class BoostItem : PickUp
+    class Artifact:PickUp
     {
 
-        public BoostItem(Effect effect) : base(effect) { }
+        public Artifact(Effect effect):base(effect) { }
     }
 }

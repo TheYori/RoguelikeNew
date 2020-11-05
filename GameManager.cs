@@ -21,7 +21,7 @@ namespace Roguelike
         private List<Environment> environmentList;
         
         //player
-        private static Vector2 screenSize;
+        protected static Vector2 screenSize;
         private Texture2D collisionTexture;
 
         public GameManager()
@@ -33,8 +33,10 @@ namespace Roguelike
 
         protected override void Initialize()
         {
-            _graphics.PreferredBackBufferWidth = 2080;
-            _graphics.PreferredBackBufferHeight = 1080;
+
+            screenSize = new Vector2(2080, 1080);
+            _graphics.PreferredBackBufferWidth = (int)screenSize.X;
+            _graphics.PreferredBackBufferHeight = (int)screenSize.Y;
             _graphics.ApplyChanges();
 
             environmentList = new List<Environment>();
@@ -45,7 +47,7 @@ namespace Roguelike
             environmentList.Add(testEnviroment);
 
 
-            Dungeon scienceDungeon = new Dungeon(Theme.science, new Level(2080, 1080, player, environmentList));
+            Dungeon scienceDungeon = new Dungeon(Theme.science, new Level((int)screenSize.X, (int)screenSize.Y, player, environmentList));
 
 
 

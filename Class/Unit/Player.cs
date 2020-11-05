@@ -22,7 +22,12 @@ namespace Roguelike
         // Body claculations
         private bool spaceHeldDown = false;
 
-
+        public Player()
+        {
+            color = Color.White;
+            speed = 500f;
+            position = new Vector2(50, 900);
+        }
  
         private void Handleinput()
         {
@@ -119,7 +124,8 @@ namespace Roguelike
 
         public override void Update(GameTime gameTime)
         {
-
+            Handleinput();
+            Move(gameTime);
         }
 
         public void OnCollision(GameObject gameObject)
