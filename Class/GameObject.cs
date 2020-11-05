@@ -15,6 +15,14 @@ namespace Roguelike.Class
         protected Vector2 position;
         protected Rectangle collisionBox;
 
+        protected Texture2D[] sprites;
+        protected float speed;
+        protected Vector2 velocity;
+        protected Vector2 offset;
+        protected float fps;
+        private float timeElapsed;
+        private int currentIndex;
+
         public abstract void LoadContent(ContentManager content);
         public abstract void Update(GameTime gameTime);
 
@@ -35,6 +43,55 @@ namespace Roguelike.Class
 
             return false;
         }
+
+        //Needed to add to make a somewhat working player
+        public Rectangle CollisionBox
+        {
+            get
+            {
+                return new Rectangle(
+                (int)(position.X + offset.X),
+                (int)(position.Y + offset.Y),
+                sprite.Width,
+                sprite.Height);
+            }
+        }
+
+        public void checkcollision(GameObject other)
+        {
+            if (CollisionBox.Intersects(other.CollisionBox))
+            {
+                OnCollision(other);
+            }
+        }
+
+        protected void Animate(GameTime gameTime)
+        {
+            //Adds time that has passed since last update
+            timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            //Calculates the current index
+            currentIndex = (int)(timeElapsed * fps);
+
+            sprite = sprites[currentIndex];
+
+            //Checks if we need to restart the animation
+            if (currentIndex >= sprites.Length - 1)
+            {
+                //Resets the animation
+                timeElapsed = 0;
+                currentIndex = 0;
+            }
+        }
+
+        protected void Move(GameTime gameTime)
+        {
+            //Calculates deltaTime based on...
+            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            //Moves the object based on the result from HandleInput, speed and deltatime
+            position += ((velocity * speed) * deltaTime);
+        }
     }
-    
+
 }

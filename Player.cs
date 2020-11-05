@@ -1,15 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
+using System;
 using System.Text;
 
 namespace Roguelike
 {
     public class Player : Unit
     {
+
         private float dashRange;
         private float dashSpeed;
         private Vector2 projectileSpeed;
@@ -17,8 +18,38 @@ namespace Roguelike
         private bool dashAttack;
         private BoostItem[] boostList;
 
-        // Body claculations
-        private bool spaceHeldDown = false;
+        private Texture2D idleSprite;
+
+
+        public Player()
+        {
+            fps = 33;
+            speed = 800;
+            velocity = Vector2.Zero;
+        }
+
+        private void ScreenWarp()
+        {
+            if (position.X > GameManager.GetScreenSize.X + sprite.Width)
+            {
+                position.X = -sprite.Width;
+            }
+            else if (position.X < -sprite.Width)
+            {
+                position.X = GameManager.GetScreenSize.X + sprite.Width;
+            }
+        }
+        private void ScreenLimits()
+        {
+            if (position.Y - sprite.Height / 2 < 0)
+            {
+                position.Y = sprite.Height / 2;
+            }
+            else if (position.Y > GameManager.GetScreenSize.Y)
+            {
+                position.Y = GameManager.GetScreenSize.Y;
+            }
+        }
 
         private void Handleinput()
         {
@@ -34,7 +65,7 @@ namespace Roguelike
             if (keyState.IsKeyDown(Keys.W))
             {
                 //jump
-                //velocity += new Vector2(0, -1);
+               
             }
 
             //if we press A
@@ -50,17 +81,13 @@ namespace Roguelike
                 //move right
                 velocity += new Vector2(1, 0);
             }
-            
+
             //if we press Space
-            if(keyState.Iskeydown(Keys.Space))
+            if (keyState.Iskeydown(Keys.Space))
             {
-                //jump - shouldn't be able to "fly"
-                if (!spaceHeldDown && Velocity.Y <= 100f && Velocity.Y >= 0f)
-                    Velocity += new Vector2(0f, -1500f);
-                spaceHeldDown = true;
-            }
-            else
-                spaceHeldDown = false;
+                //ADD attack
+            }    
+                
 
             //If pressed key, then we need to normalize the vector
             //If we don't do this we will move faster
@@ -108,21 +135,40 @@ namespace Roguelike
 
         public override void LoadContent(ContentManager content)
         {
-            //places player closer to the middle
-            this.position = new Vector2(GameWorld.GetScreenSize.X / 2, GameWorld.GetScreenSize.Y - sprite.Height / 2);
-            this.origin = new Vector2(sprite.Width / 2, sprite.Height / 2);
-        }
+            //Instantiates the sprite array
+            sprites = new Texture2D[2];
 
+            //Loads all sprites into the array
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                sprites[i] = content.Load<Texture2D>(i + 1 + "player_walk_Placeholder");
+            }
+
+            //Sets a defualt sprite
+            sprite = sprites[0];
+
+            //places player closer to the middle
+            this.position = new Vector2(GameManager.GetScreenSize.X / 2, GameManager.GetScreenSize.Y - sprite.Height / 2);
+            this.origin = new Vector2(sprite.Width / 2, sprite.Height);
+        }
 
 
         public override void Update(GameTime gameTime)
         {
+            HandleInput();
+            Move(gameTime);
 
+            Animate(gameTime);
+
+            ScreenWarp();
+            ScreenLimits();
         }
 
+        
         public override void OnCollision(GameObject other)
         {
-
+            //Makes collisionBox visible for the player sprite
+            this.offset = new Vector2(sprite.Width / -2, sprite.Height * -1); //Centers the Collison box
         }
     }
 }

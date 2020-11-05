@@ -20,6 +20,10 @@ namespace Roguelike
 
         private List<GameObject> gameObjects;
         private List<Environment> environmentList;
+        
+        //player
+        private static Vector2 screenSize;
+        private Texture2D collisionTexture;
 
         public GameManager()
         {
@@ -64,6 +68,7 @@ namespace Roguelike
                 obj.LoadContent(this.Content);
             }
 
+            collisionTexture = Content.Load<Texture2D>("CollisionTexture");
             // TODO: use this.Content to load your game content here
         }
 
@@ -89,17 +94,30 @@ namespace Roguelike
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
-
+            _spriteBatch.Draw(spriteBackground, rectangleBackground, Color.White);
             foreach (GameObject obj in gameObjects)
             {
                 obj.Draw(_spriteBatch);
+#if DEBUG
+                DrawCollisionBox(go);
+#endif
             }
 
             _spriteBatch.End();
-
-
-
             base.Draw(gameTime);
+        }
+
+        private void DrawCollisionBox(GameObject go)
+        {
+            Rectangle topLine = new Rectangle(go.CollisionBox.X, go.CollisionBox.Y, go.CollisionBox.Width, 1);
+            Rectangle bottomLine = new Rectangle(go.CollisionBox.X, go.CollisionBox.Y + go.CollisionBox.Height, go.CollisionBox.Width, 1);
+            Rectangle rightLine = new Rectangle(go.CollisionBox.X + go.CollisionBox.Width, go.CollisionBox.Y, 1, go.CollisionBox.Height);
+            Rectangle leftLine = new Rectangle(go.CollisionBox.X, go.CollisionBox.Y, 1, go.CollisionBox.Height);
+
+            _spriteBatch.Draw(collisionTexture, topLine, Color.Red);
+            _spriteBatch.Draw(collisionTexture, bottomLine, Color.Red);
+            _spriteBatch.Draw(collisionTexture, rightLine, Color.Red);
+            _spriteBatch.Draw(collisionTexture, leftLine, Color.Red);
         }
     }
 }
