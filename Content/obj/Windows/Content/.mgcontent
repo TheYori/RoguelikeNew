@@ -4,16 +4,16 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/Roguelike/Roguelike/Content/../../../Assets/placeholder graphic/platFormDummyNormalSize.png</File>
-    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/Roguelike/Roguelike/Content/../../../Assets/placeholder graphic/ScienceLabBackDrop.png</File>
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/Roguelike/Roguelike/Content/1player_walk_Placeholder.png</File>
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/Roguelike/Roguelike/Content/2player_walk_Placeholder.png</File>
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/Roguelike/Roguelike/Content/CollisionTexture.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/Roguelike/Roguelike/Content/platFormDummyNormalSize.png</File>
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/Roguelike/Roguelike/Content/Portal.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/Roguelike/Roguelike/Content/ScienceLabBackDrop.png</File>
   </SourceFiles>
   <DestFiles>
-    <File>platFormDummyNormalSize.png</File>
-    <File>ScienceLabBackDrop.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
