@@ -32,6 +32,7 @@ namespace Roguelike.Class.World.DungeonContent
 
             if (gameObject is Player && portalActive)
             {
+                color = Color.Red;
                 ChangeLevel(2);
                 portalActive=false;
             }
