@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Roguelike.Class;
 using Roguelike.Class.World;
-using Roguelike.Class.World.tempClass;
 using System.Collections.Generic;
 
 namespace Roguelike
@@ -40,7 +39,7 @@ namespace Roguelike
 
             environmentList = new List<Environment>();
             // TODO: Add your initialization logic here
-            DummyPlayer player = new DummyPlayer();
+            Player player = new Player();
             Environment testEnviroment = new Environment(new Vector2(500,300));
 
             environmentList.Add(testEnviroment);
@@ -94,12 +93,12 @@ namespace Roguelike
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
-            _spriteBatch.Draw(spriteBackground, rectangleBackground, Color.White);
+
             foreach (GameObject obj in gameObjects)
             {
                 obj.Draw(_spriteBatch);
 #if DEBUG
-                DrawCollisionBox(go);
+                DrawCollisionBox(obj);
 #endif
             }
 

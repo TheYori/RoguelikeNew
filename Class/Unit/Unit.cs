@@ -5,25 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Roguelike.Class.World
+namespace Roguelike.Class
 {
-
-    class Level : GameObject
+    public class Unit : GameObject
     {
-
-        private Rectangle borderSize;
-        private List<Environment> enviromentList;
-
-
-        public Level(int mapSizeWidth, int mapSizeHeight, Player player, List<Environment> enviromentList)
-        {
-            borderSize = new Rectangle(0, 0, mapSizeWidth, mapSizeHeight);
-            this.enviromentList = enviromentList;
-        }
+        protected Vector2 velocity;
 
         public override void LoadContent(ContentManager content)
         {
-
 
         }
 
@@ -34,8 +23,7 @@ namespace Roguelike.Class.World
 
         public override void Update(GameTime gameTime)
         {
-
+            throw new NotImplementedException();
         }
-
     }
 }

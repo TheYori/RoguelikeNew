@@ -30,7 +30,7 @@ namespace Roguelike.Class
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, position, null, color, 0, origin, 1, SpriteEffects.None, 0);
+            spriteBatch.Draw(sprite, position, null , color, 0, origin, 1, SpriteEffects.None, 0);
         }
 
         public bool CheckCollision(GameObject obj)
@@ -54,14 +54,6 @@ namespace Roguelike.Class
                 (int)(position.Y + offset.Y),
                 sprite.Width,
                 sprite.Height);
-            }
-        }
-
-        public void checkcollision(GameObject other)
-        {
-            if (CollisionBox.Intersects(other.CollisionBox))
-            {
-                OnCollision(other);
             }
         }
 
