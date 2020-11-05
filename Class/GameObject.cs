@@ -13,7 +13,7 @@ namespace Roguelike.Class
         protected Vector2 origin;
         protected Color color;
         protected Vector2 position;
-        protected Rectangle collisionBox;
+
 
         protected Texture2D[] sprites;
         protected float speed;
@@ -26,23 +26,14 @@ namespace Roguelike.Class
         public abstract void LoadContent(ContentManager content);
         public abstract void Update(GameTime gameTime);
 
-        public abstract void onCollision(GameObject gameObject);
+        public abstract void OnCollision(GameObject gameObject);
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(sprite, position, null , color, 0, origin, 1, SpriteEffects.None, 0);
         }
 
-        public bool CheckCollision(GameObject obj)
-        {
-            if (collisionBox.Intersects(obj.collisionBox))
-            {
-                onCollision(obj);
-                return true;
-            }
 
-            return false;
-        }
 
         //Needed to add to make a somewhat working player
         public Rectangle CollisionBox
@@ -50,11 +41,22 @@ namespace Roguelike.Class
             get
             {
                 return new Rectangle(
-                (int)(position.X + offset.X),
-                (int)(position.Y + offset.Y),
+                (int)(position.X),
+                (int)(position.Y),
                 sprite.Width,
                 sprite.Height);
             }
+        }
+
+        public bool CheckCollision(GameObject obj)
+        {
+            if (CollisionBox.Intersects(obj.CollisionBox))
+            {
+                OnCollision(obj);
+                return true;
+            }
+
+            return false;
         }
 
         protected void Animate(GameTime gameTime)

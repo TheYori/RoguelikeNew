@@ -1,17 +1,22 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Roguelike.Class.World;
+using Roguelike.Class.World.DungeonContent;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Roguelike.Class.World
+namespace Roguelike.Class
 {
     class Dungeon : GameObject
     {
 
         protected Theme dungeonTheme;
-        protected Level level; 
+        protected Level level;
+        protected Texture2D PlatformSprite;
+        protected Texture2D backDropSprite;
+
 
         public Dungeon(Theme theme, Level level)
         {
@@ -19,6 +24,7 @@ namespace Roguelike.Class.World
             this.dungeonTheme = theme;
             color = Color.White;
             origin = Vector2.Zero;
+
         }
 
         public override void LoadContent(ContentManager content)
@@ -26,9 +32,11 @@ namespace Roguelike.Class.World
             if(dungeonTheme == Theme.science)
             {
                 sprite = content.Load<Texture2D>("ScienceLabBackDrop");
+            
             }
 
         }
+
 
         public override void Update(GameTime gameTime)
         {
@@ -37,12 +45,12 @@ namespace Roguelike.Class.World
 
         public void InitiateLevel(int levelProgression)
         {
-
+           
         }
 
-        public override void onCollision(GameObject gameObject)
+        public override void OnCollision(GameObject gameObject)
         {
-            throw new NotImplementedException();
+        
         }
     }
 }

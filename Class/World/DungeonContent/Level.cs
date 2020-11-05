@@ -15,11 +15,22 @@ namespace Roguelike.Class.World
         private List<Environment> enviromentList;
 
 
-        public Level(int mapSizeWidth, int mapSizeHeight, Player player, List<Environment> enviromentList)
+        public List<Environment>  EnviromentList
+        {
+            get
+            {
+                return enviromentList;
+            }
+            }
+
+        public Level(int mapSizeWidth, int mapSizeHeight, List<Environment> enviromentList)
         {
             borderSize = new Rectangle(0, 0, mapSizeWidth, mapSizeHeight);
             this.enviromentList = enviromentList;
         }
+
+     
+
 
         public override void LoadContent(ContentManager content)
         {
@@ -27,7 +38,7 @@ namespace Roguelike.Class.World
 
         }
 
-        public override void onCollision(GameObject gameObject)
+        public override void OnCollision(GameObject gameObject)
         {
             throw new NotImplementedException();
         }

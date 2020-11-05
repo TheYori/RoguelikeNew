@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Roguelike.Class;
+using Roguelike.Class.World;
+using Roguelike.Class.World.DungeonContent;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,6 +29,7 @@ namespace Roguelike
             color = Color.White;
             speed = 500f;
             position = new Vector2(50, 900);
+
         }
  
         private void Handleinput()
@@ -46,6 +49,7 @@ namespace Roguelike
                 //velocity += new Vector2(0, -1);
             }
 
+            
             //if we press A
             if (keyState.IsKeyDown(Keys.A))
             {
@@ -128,8 +132,13 @@ namespace Roguelike
             Move(gameTime);
         }
 
-        public void OnCollision(GameObject gameObject)
+        public override void OnCollision(GameObject gameObject)
         {
+           
+            if(gameObject is Portal)
+            {
+              
+            }
 
         }
     }

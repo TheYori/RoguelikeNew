@@ -5,27 +5,29 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Roguelike.Class.World
+namespace Roguelike.Class
 {
-    class Environment : GameObject
+    public class Environment : GameObject
     {
 
-        public Environment(Vector2 Position)
+
+        public Environment(Vector2 MyPosition)
         {
-            base.position = position;
+            position = MyPosition;
             color = Color.White;
             origin = Vector2.Zero;
         }
 
         public override void LoadContent(ContentManager content)
         {
-            sprite = content.Load<Texture2D>("platFormDummyNormalSize");
+        
+
 
         }
 
-        public override void onCollision(GameObject gameObject)
+        public override void OnCollision(GameObject gameObject)
         {
-            throw new NotImplementedException();
+            
         }
 
         public override void Update(GameTime gameTime)

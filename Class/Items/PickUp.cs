@@ -17,7 +17,7 @@ namespace Roguelike.Class
             throw new NotImplementedException();
         }
 
-        public override void onCollision(GameObject gameObject)
+        public override void OnCollision(GameObject gameObject)
         {
             throw new NotImplementedException();
         }

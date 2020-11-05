@@ -29,9 +29,9 @@ namespace Roguelike.Class
 
         }
 
-        public override void onCollision(GameObject gameObject)
+        public override void OnCollision(GameObject gameObject)
         {
-            throw new NotImplementedException();
+          
         }
 
         public override void Update(GameTime gameTime)
