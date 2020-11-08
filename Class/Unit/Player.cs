@@ -8,11 +8,13 @@ using Roguelike.Class.World.DungeonContent;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework.Media;
+
 
 
 namespace Roguelike
 {
-     class Player : Unit
+    class Player : Unit
     {
         private float dashRange;
         private float dashSpeed;
@@ -20,6 +22,7 @@ namespace Roguelike
         private bool rangeAttack;
         private bool dashAttack;
         private BoostItem[] boostList;
+        bool wHeldDown;
 
         // Body claculations
         private bool spaceHeldDown = false;
@@ -28,16 +31,51 @@ namespace Roguelike
         {
             color = Color.White;
             speed = 500f;
-            position = new Vector2(50, 900);
-
         }
- 
-        private void Handleinput()
+
+        private void ScreenWarp()
+        {
+            if (position.X > GameManager.GetScreenSize.X + sprite.Width)
+            {
+                position.X = -sprite.Width;
+            }
+            else if (position.X < -sprite.Width)
+            {
+                position.X = GameManager.GetScreenSize.X + sprite.Width;
+            }
+        }
+        private void ScreenLimits()
+        {
+            if (position.Y - sprite.Height / 2 < 0)
+            {
+                position.Y = sprite.Height / 2;
+            }
+            else if (position.Y > GameManager.GetScreenSize.Y)
+            {
+                position.Y = GameManager.GetScreenSize.Y;
+            }
+        }
+
+        /// <summary>
+        /// Applies physics such as gravity and velocity.
+        /// </summary>
+        private void ApplyPhysics(GameTime gameTime)
+        {
+            //Apply gravity
+
+            velocity += new Vector2(0f, 0.05f);
+
+
+            //Apply velocity
+            //position += velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
+
+        private void HandleInput()
         {
             //Resets velocity
             //Makes sure that we will stop moving
             //when no keys are pressed
-            velocity = Vector2.Zero;
+            velocity = new Vector2(0f, velocity.Y);
 
             // Get the current keyboard state
             KeyboardState keyState = Keyboard.GetState();
@@ -45,11 +83,14 @@ namespace Roguelike
             //if we press W
             if (keyState.IsKeyDown(Keys.W))
             {
-                //jump
-                //velocity += new Vector2(0, -1);
+                //Try to disable jumping in the air. Not perfect, would be better to check if player is on ground.
+                if (!wHeldDown)
+                    velocity = new Vector2(velocity.X, -1);
+                wHeldDown = true;
             }
+            else
+                wHeldDown = false;
 
-            
             //if we press A
             if (keyState.IsKeyDown(Keys.A))
             {
@@ -63,26 +104,20 @@ namespace Roguelike
                 //move right
                 velocity += new Vector2(1, 0);
             }
-            
-            //if we press Space
-            if(keyState.IsKeyDown(Keys.Space))
-            {
-                //jump - shouldn't be able to "fly"
-                if (!spaceHeldDown && velocity.Y <= 100f && velocity.Y >= 0f)
-                    velocity += new Vector2(0f, -1500f);
-                spaceHeldDown = true;
-            }
-            else
-                spaceHeldDown = false;
 
-            //If pressed key, then we need to normalize the vector
-            //If we don't do this we will move faster
-            //while pressing two keys at once
-            if (velocity != Vector2.Zero)
+            //if we press S
+            if (keyState.IsKeyDown(Keys.S))
             {
-                velocity.Normalize();
+                //move down
+                velocity += new Vector2(0, 1);
+            }
+
+            if (keyState.IsKeyDown(Keys.Space))
+            {
+                //ADD attack
             }
         }
+
 
         private void Jump()
         {
@@ -121,25 +156,36 @@ namespace Roguelike
 
         public override void LoadContent(ContentManager content)
         {
-            sprite = content.Load<Texture2D>("1player_walk_Placeholder");
+            //Instantiates the sprite array
+            sprites = new Texture2D[2];
+
+            //Loads all sprites into the array
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                sprites[i] = content.Load<Texture2D>(i + 1 + "player_walk_Placeholder");
+            }
+
+            //Sets a defualt sprite
+            sprite = sprites[0];
         }
 
 
 
         public override void Update(GameTime gameTime)
         {
-            Handleinput();
+            HandleInput();
+            ApplyPhysics(gameTime);
             Move(gameTime);
+            Animate(gameTime);
+
+            ScreenWarp();
+            ScreenLimits();
         }
 
         public override void OnCollision(GameObject gameObject)
         {
-           
-            if(gameObject is Portal)
-            {
-              
-            }
-
+            this.offset = new Vector2(sprite.Width / -2, sprite.Height * -1); //Centers the Collison box
         }
     }
 }
+

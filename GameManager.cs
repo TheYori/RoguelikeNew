@@ -25,7 +25,7 @@ namespace Roguelike
         //player
         protected static Vector2 screenSize;
         private Texture2D collisionTexture;
-
+        public static Vector2 GetScreenSize { get => screenSize; }
 
         Dungeon scienceDungeon;
 
