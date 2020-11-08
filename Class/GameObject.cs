@@ -23,15 +23,15 @@ namespace Roguelike.Class
         private float timeElapsed;
         private int currentIndex;
 
-        public abstract void LoadContent(ContentManager content); //[UPDATED]
-        public abstract void Update(GameTime gameTime); //[UPDATED]
+        public abstract void LoadContent(ContentManager content); 
+        public abstract void Update(GameTime gameTime); 
 
-        public abstract void OnCollision(GameObject gameObject); //[UPDATED]
+        public abstract void OnCollision(GameObject gameObject); 
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(sprite, position, null , color, 0, origin, 1, SpriteEffects.None, 0);
-        } //[UPDATED]
+        } 
 
         //positions the collisionbox rectangle
         public Rectangle CollisionBox
@@ -57,7 +57,7 @@ namespace Roguelike.Class
             }
 
             return false;
-        } //[UPDATED]
+        } 
 
         protected void Animate(GameTime gameTime)
         {
@@ -76,7 +76,7 @@ namespace Roguelike.Class
                 timeElapsed = 0;
                 currentIndex = 0;
             }
-        } //[UPDATED]
+        } 
 
         protected void Move(GameTime gameTime)
         {
@@ -85,7 +85,7 @@ namespace Roguelike.Class
 
             //Moves the object based on the result from HandleInput, speed and deltatime
             position += ((velocity * speed) * deltaTime);
-        } //[UPDATED]
+        } 
     }
 
 }

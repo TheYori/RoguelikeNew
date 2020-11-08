@@ -58,7 +58,7 @@ namespace Roguelike
             {
                 position.X = GameManager.GetScreenSize.X + sprite.Width;
             }
-        } //[UPDATED]
+        } 
         private void ScreenLimits()
         {
             if (position.Y - sprite.Height / 2 < 0)
@@ -69,7 +69,7 @@ namespace Roguelike
             {
                 position.Y = GameManager.GetScreenSize.Y;
             }
-        } //[UPDATED]
+        } 
 
         /// <summary>
         /// Applies physics such as gravity and velocity.
@@ -83,7 +83,7 @@ namespace Roguelike
 
             //Apply velocity
             //position += velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
-        }  //[UPDATED]
+        }  
 
         private void HandleInput()
         {
