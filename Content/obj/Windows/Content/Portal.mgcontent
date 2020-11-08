@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/Roguelike/Roguelike/Content/Portal.png</SourceFile>
-  <SourceTime>2020-11-05T11:53:25.5722269+01:00</SourceTime>
-  <DestFile>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/Roguelike/Roguelike/Content/bin/Windows/Content/Portal.xnb</DestFile>
-  <DestTime>2020-11-05T11:53:50.7779839+01:00</DestTime>
+  <SourceFile>C:/Users/ricki/source/repos/RoguelikeNew/Content/Portal.png</SourceFile>
+  <SourceTime>2020-11-05T15:51:42.7457784+01:00</SourceTime>
+  <DestFile>C:/Users/ricki/source/repos/RoguelikeNew/Content/bin/Windows/Content/Portal.xnb</DestFile>
+  <DestTime>2020-11-08T13:45:31.0951586+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
