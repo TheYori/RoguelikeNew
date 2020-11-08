@@ -23,30 +23,30 @@ namespace Roguelike.Class
         private float timeElapsed;
         private int currentIndex;
 
-        public abstract void LoadContent(ContentManager content);
-        public abstract void Update(GameTime gameTime);
+        public abstract void LoadContent(ContentManager content); //[UPDATED]
+        public abstract void Update(GameTime gameTime); //[UPDATED]
 
-        public abstract void OnCollision(GameObject gameObject);
+        public abstract void OnCollision(GameObject gameObject); //[UPDATED]
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(sprite, position, null , color, 0, origin, 1, SpriteEffects.None, 0);
-        }
+        } //[UPDATED]
 
-
-
-        //Needed to add to make a somewhat working player
+        //positions the collisionbox rectangle
         public Rectangle CollisionBox
         {
             get
             {
+                //offset X and Y helps center the collison box
+                //remove them if player's middle spawn is/will be removed
                 return new Rectangle(
-                (int)(position.X),
-                (int)(position.Y),
+                (int)(position.X + offset.X),
+                (int)(position.Y + offset.Y),
                 sprite.Width,
                 sprite.Height);
             }
-        }
+        } //[UPDATED]
 
         public bool CheckCollision(GameObject obj)
         {
@@ -57,7 +57,7 @@ namespace Roguelike.Class
             }
 
             return false;
-        }
+        } //[UPDATED]
 
         protected void Animate(GameTime gameTime)
         {
@@ -76,7 +76,7 @@ namespace Roguelike.Class
                 timeElapsed = 0;
                 currentIndex = 0;
             }
-        }
+        } //[UPDATED]
 
         protected void Move(GameTime gameTime)
         {
@@ -85,7 +85,7 @@ namespace Roguelike.Class
 
             //Moves the object based on the result from HandleInput, speed and deltatime
             position += ((velocity * speed) * deltaTime);
-        }
+        } //[UPDATED]
     }
 
 }

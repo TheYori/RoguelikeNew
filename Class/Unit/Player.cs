@@ -16,21 +16,36 @@ namespace Roguelike
 {
     class Player : Unit
     {
+        // Fields for Dash ability
         private float dashRange;
         private float dashSpeed;
+        private bool dashAttack;
+
+        // Fields for long range attack
         private Vector2 projectileSpeed;
         private bool rangeAttack;
-        private bool dashAttack;
+        
         private BoostItem[] boostList;
-        bool wHeldDown;
 
-        // Body claculations
-        private bool spaceHeldDown = false;
+        // Fields for movements
+        bool keyHeldDown;
 
         public Player()
         {
-            color = Color.White;
+            color = Color.White; //Racist Motherf*cker!
+            fps = 1;
             speed = 500f;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            HandleInput();
+            ApplyPhysics(gameTime);
+            Move(gameTime);
+            Animate(gameTime);
+
+            ScreenWarp();
+            ScreenLimits();
         }
 
         private void ScreenWarp()
@@ -43,7 +58,7 @@ namespace Roguelike
             {
                 position.X = GameManager.GetScreenSize.X + sprite.Width;
             }
-        }
+        } //[UPDATED]
         private void ScreenLimits()
         {
             if (position.Y - sprite.Height / 2 < 0)
@@ -54,7 +69,7 @@ namespace Roguelike
             {
                 position.Y = GameManager.GetScreenSize.Y;
             }
-        }
+        } //[UPDATED]
 
         /// <summary>
         /// Applies physics such as gravity and velocity.
@@ -68,7 +83,7 @@ namespace Roguelike
 
             //Apply velocity
             //position += velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
-        }
+        }  //[UPDATED]
 
         private void HandleInput()
         {
@@ -84,12 +99,12 @@ namespace Roguelike
             if (keyState.IsKeyDown(Keys.W))
             {
                 //Try to disable jumping in the air. Not perfect, would be better to check if player is on ground.
-                if (!wHeldDown)
+                if (!keyHeldDown)
                     velocity = new Vector2(velocity.X, -1);
-                wHeldDown = true;
+                keyHeldDown = true;
             }
             else
-                wHeldDown = false;
+                keyHeldDown = false;
 
             //if we press A
             if (keyState.IsKeyDown(Keys.A))
@@ -116,18 +131,17 @@ namespace Roguelike
             {
                 //ADD attack
             }
-        }
-
+        } //[UPDATED]
 
         private void Jump()
         {
 
-        }
+        }   //QUESTION: do we need the jump function to have its own method?
 
         private void Dash()
         {
 
-        }
+        }  //"Dash" is technically a movement, but since we need to [manipulate] it, "Dash" have its own method
 
         private void Collect()
         {
@@ -137,7 +151,7 @@ namespace Roguelike
         private void CameraMovement()
         {
 
-        }
+        } 
 
         private void RecieveEffect(PickUp pickup)
         {
@@ -167,21 +181,15 @@ namespace Roguelike
 
             //Sets a defualt sprite
             sprite = sprites[0];
+
+            //spawns player closer to the middle
+            //Somehow makes a ground collision on the bottom of the screen
+            //Remove these to lines of code IF player have to spawn elsewhere or need a proper pground to stand on
+            this.position = new Vector2(GameManager.GetScreenSize.X / 2, GameManager.GetScreenSize.Y - sprite.Height / 2);
+            this.origin = new Vector2(sprite.Width / 2, sprite.Height);
         }
 
-
-
-        public override void Update(GameTime gameTime)
-        {
-            HandleInput();
-            ApplyPhysics(gameTime);
-            Move(gameTime);
-            Animate(gameTime);
-
-            ScreenWarp();
-            ScreenLimits();
-        }
-
+        // Makes collisionBox visible for the player sprite
         public override void OnCollision(GameObject gameObject)
         {
             this.offset = new Vector2(sprite.Width / -2, sprite.Height * -1); //Centers the Collison box
