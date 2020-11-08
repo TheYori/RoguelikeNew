@@ -1,1 +1,7 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/ricki/source/repos/RoguelikeNew2/Content/1player_walk_Placeholder.png","C:/Users/ricki/source/repos/RoguelikeNew2/Content/bin/Windows/Content/1player_walk_Placeholder.xnb","TextureProcessor","Texture2DContent",4856,35285,0,1292053
+"C:/Users/ricki/source/repos/RoguelikeNew2/Content/2player_walk_Placeholder.png","C:/Users/ricki/source/repos/RoguelikeNew2/Content/bin/Windows/Content/2player_walk_Placeholder.xnb","TextureProcessor","Texture2DContent",5450,35285,0,0025096
+"C:/Users/ricki/source/repos/RoguelikeNew2/Content/CollisionTexture.png","C:/Users/ricki/source/repos/RoguelikeNew2/Content/bin/Windows/Content/CollisionTexture.xnb","TextureProcessor","Texture2DContent",2804,485,0,0016315
+"C:/Users/ricki/source/repos/RoguelikeNew2/Content/platFormDummyNormalSize.png","C:/Users/ricki/source/repos/RoguelikeNew2/Content/bin/Windows/Content/platFormDummyNormalSize.xnb","TextureProcessor","Texture2DContent",14901,60085,0,0050136
+"C:/Users/ricki/source/repos/RoguelikeNew2/Content/Portal.png","C:/Users/ricki/source/repos/RoguelikeNew2/Content/bin/Windows/Content/Portal.xnb","TextureProcessor","Texture2DContent",151474,800085,0,0207712
+"C:/Users/ricki/source/repos/RoguelikeNew2/Content/ScienceLabBackDrop.png","C:/Users/ricki/source/repos/RoguelikeNew2/Content/bin/Windows/Content/ScienceLabBackDrop.xnb","TextureProcessor","Texture2DContent",562195,8985685,0,2297509
