@@ -23,14 +23,15 @@ namespace Roguelike.Class
         private float timeElapsed;
         private int currentIndex;
 
-        public abstract void LoadContent(ContentManager content); 
+        public abstract void LoadContent(ContentManager content);
+        
         public abstract void Update(GameTime gameTime); 
 
         public abstract void OnCollision(GameObject gameObject); 
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, position, null , color, 0, origin, 1, SpriteEffects.None, 0);
+            spriteBatch.Draw(sprite, position, null , color, 0, origin, 1f, SpriteEffects.None, 0);
         } 
 
         //positions the collisionbox rectangle

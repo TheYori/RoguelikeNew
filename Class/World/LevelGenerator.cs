@@ -1,41 +1,62 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Roguelike.Class.World.DungeonContent;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace Roguelike.Class
 {
-      public static class LevelGenerator
+      public  class LevelGenerator : GameObject
     {
 
 
-        public static List<Environment> CreateEnviromentList(int levelProgression)
+        public List<GameObject> CreateLevel(int levelProgression, ContentManager content)
         {
-            List<Environment> levelList = new List<Environment>();
+            List<GameObject> levelList = new List<GameObject>();
 
             levelList.Clear();
 
-
             if (levelProgression == 1)
             {
+ 
+                levelList.Add(new Platform(new Vector2(400, 450)));
+                levelList.Add(new Platform(new Vector2(800, 450)));
+                levelList.Add(new Portal(new Vector2(1400, 500)));
 
-                levelList.Add(new Platform(new Vector2(400, 100)));
-                levelList.Add(new Platform(new Vector2(800, 100)));
-                levelList.Add(new Portal(new Vector2(800, 500)));
             }
 
             if (levelProgression == 2)
             {
 
-                levelList.Add(new Platform(new Vector2(400, 250)));
-                levelList.Add(new Platform(new Vector2(800, 300)));
+                // levelList.Add(new Platform(new Vector2(400, 250)));
+                // levelList.Add(new Platform(new Vector2(800, 300)));
                 levelList.Add(new Platform(new Vector2(800, 500)));
             }
 
 
 
+            foreach (GameObject obj in levelList) {
+                obj.LoadContent(content);
+            }
+
             return levelList;
+        }
+
+        public override void LoadContent(ContentManager content)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void OnCollision(GameObject gameObject)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            throw new NotImplementedException();
         }
     }
 }
