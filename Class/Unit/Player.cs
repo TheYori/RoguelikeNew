@@ -129,7 +129,7 @@ namespace Roguelike
 
         private void Dash()
         {
-
+            
         }  //"Dash" is technically a movement, but since we need to [manipulate] it, "Dash" have its own method
 
         private void Collect()

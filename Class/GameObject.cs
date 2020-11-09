@@ -46,7 +46,7 @@ namespace Roguelike.Class
                 sprite.Width,
                 sprite.Height);
             }
-        } //[UPDATED]
+        } 
 
         public bool CheckCollision(GameObject obj)
         {
