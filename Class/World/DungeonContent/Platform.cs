@@ -13,14 +13,14 @@ namespace Roguelike.Class
         public Platform(Vector2 Position):base(Position){
             color = Color.White;
             origin = Vector2.Zero;
-
+        
 
         }
 
         public override void LoadContent(ContentManager content)
         {
 
-            sprite = content.Load<Texture2D>("platFormDummyNormalSize");
+           sprite = content.Load<Texture2D>("platFormDummyNormalSize");
 
 
         }

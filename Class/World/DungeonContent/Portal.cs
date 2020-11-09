@@ -15,6 +15,7 @@ namespace Roguelike.Class.World.DungeonContent
         public Portal(Vector2 Position) : base(Position) {
             color = Color.White;
             origin = Vector2.Zero;
+            base.sprite = sprite; 
      
         }
 
@@ -24,7 +25,6 @@ namespace Roguelike.Class.World.DungeonContent
 
             sprite = content.Load<Texture2D>("Portal");
 
-
         }
 
         public override void OnCollision(GameObject gameObject)
@@ -32,9 +32,14 @@ namespace Roguelike.Class.World.DungeonContent
 
             if (gameObject is Player && portalActive)
             {
-                color = Color.Red;
+
+                //color = Color.Red;
+                //levelProgress++;
+                //portalActive =false;
+                //RemoveObject(this);
+                portalActive = false;
+                RemoveObject(this);
                 ChangeLevel(2);
-                portalActive=false;
             }
 
 
