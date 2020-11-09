@@ -33,7 +33,7 @@ namespace Roguelike
         public Player()
         {
             color = Color.White; //Racist Motherf*cker!
-            fps = 1;
+            fps = 6;
             speed = 500f;
         }
 
@@ -76,13 +76,8 @@ namespace Roguelike
         /// </summary>
         private void ApplyPhysics(GameTime gameTime)
         {
-            //Apply gravity
-
+            //Applies gravity
             velocity += new Vector2(0f, 0.05f);
-
-
-            //Apply velocity
-            //position += velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }  
 
         private void HandleInput()
@@ -98,10 +93,11 @@ namespace Roguelike
             //if we press W
             if (keyState.IsKeyDown(Keys.W))
             {
-                //Try to disable jumping in the air. Not perfect, would be better to check if player is on ground.
+                // Allows the player to go up, but 
+                //stops the player to continue to do so, bu holding the key.
                 if (!keyHeldDown)
                     velocity = new Vector2(velocity.X, -1);
-                keyHeldDown = true;
+                    keyHeldDown = true;
             }
             else
                 keyHeldDown = false;
@@ -120,18 +116,11 @@ namespace Roguelike
                 velocity += new Vector2(1, 0);
             }
 
-            //if we press S
-            if (keyState.IsKeyDown(Keys.S))
-            {
-                //move down
-                velocity += new Vector2(0, 1);
-            }
-
             if (keyState.IsKeyDown(Keys.Space))
             {
                 //ADD attack
             }
-        } //[UPDATED]
+        } 
 
         private void Jump()
         {
@@ -182,10 +171,10 @@ namespace Roguelike
             //Sets a defualt sprite
             sprite = sprites[0];
 
-            //spawns player closer to the middle
+            //spawns the player in the left buttom corner
             //Somehow makes a ground collision on the bottom of the screen
-            //Remove these to lines of code IF player have to spawn elsewhere or need a proper pground to stand on
-            this.position = new Vector2(GameManager.GetScreenSize.X / 2, GameManager.GetScreenSize.Y - sprite.Height / 2);
+            //Remove these to lines of code IF player have to spawn elsewhere or need a proper ground to stand on
+            this.position = new Vector2(GameManager.GetScreenSize.X - GameManager.GetScreenSize.X + sprite.Width / 2, GameManager.GetScreenSize.Y - sprite.Height / 2); 
             this.origin = new Vector2(sprite.Width / 2, sprite.Height);
         }
 
