@@ -27,6 +27,11 @@ namespace Roguelike.Class.World.DungeonContent
 
         }
 
+        public override void Initialize()
+        {
+
+        }
+
         public override void OnCollision(GameObject gameObject)
         {
 
@@ -38,8 +43,8 @@ namespace Roguelike.Class.World.DungeonContent
                 //portalActive =false;
                 //RemoveObject(this);
                 portalActive = false;
-                RemoveObject(this);
-                ChangeLevel(2);
+                GameManager.RemoveObject(this);
+                GameManager.ChangeLevel(2);
             }
 
 

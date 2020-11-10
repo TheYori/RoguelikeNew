@@ -26,5 +26,10 @@ namespace Roguelike.Class
         {
             throw new NotImplementedException();
         }
+
+        public override void Initialize()
+        {
+
+        }
     }
 }

@@ -14,6 +14,10 @@ namespace Roguelike.Class.World
         private Rectangle borderSize;
         private List<GameObject> enviromentList;
 
+        public override void Initialize()
+        {
+
+        }
 
         public List<GameObject>  EnviromentList
         {

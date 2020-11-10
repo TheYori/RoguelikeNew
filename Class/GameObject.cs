@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Roguelike.Class
 {
-    public abstract class GameObject : GameManager
+    public abstract class GameObject
     {
         protected Texture2D sprite;
         protected Vector2 origin;
@@ -25,7 +25,9 @@ namespace Roguelike.Class
 
         public abstract void LoadContent(ContentManager content);
         
-        public abstract void Update(GameTime gameTime); 
+        public abstract void Update(GameTime gameTime);
+
+        public abstract void Initialize();
 
         public abstract void OnCollision(GameObject gameObject); 
 

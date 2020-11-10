@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Roguelike.Class;
@@ -21,17 +22,18 @@ namespace Roguelike
         protected Rectangle collisionBox;
 
         private List<GameObject> gameObjects;
-        public List<GameObject> environmentList;
+        public static List<GameObject> environmentList;
         static List<GameObject> removeList;
-        private List<GameObject> addObject = new List<GameObject>();
+        private static List<GameObject> addObject;
 
-
+        
         public static LevelGenerator lg;
 
         //player
         protected static Vector2 screenSize;
         private Texture2D collisionTexture;
         public static Vector2 GetScreenSize { get => screenSize; }
+        public static ContentManager content;
 
         Dungeon currentDungeon;
 
@@ -54,21 +56,18 @@ namespace Roguelike
 
             lg = new LevelGenerator();
 
-
-
+            addObject = new List<GameObject>();
             removeList = new List<GameObject>();
             gameObjects = new List<GameObject>();
             environmentList = new List<GameObject>();
 
             // TODO: Add your initialization logic here
             Player player = new Player();
+            currentDungeon = new Dungeon(Theme.science, new Level((int)screenSize.X, (int)screenSize.Y, environmentList));
 
-            ChangeLevel(levelProgression);
-
-
+            //gameObjects.Add(currentDungeon);
             gameObjects.Add(currentDungeon);
             gameObjects.Add(player);
-
 
     
             base.Initialize();
@@ -78,16 +77,20 @@ namespace Roguelike
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            content = this.Content;
+            
             foreach(GameObject obj in gameObjects)
             {
-                obj.LoadContent(this.Content);
+                obj.LoadContent(content);
             }
 
-
+            ChangeLevel(levelProgression);
 
             collisionTexture = Content.Load<Texture2D>("CollisionTexture");
 
             // TODO: use this.Content to load your game content here
+
+            base.LoadContent();
         }
 
         protected override void Update(GameTime gameTime)
@@ -146,10 +149,16 @@ namespace Roguelike
             base.Draw(gameTime);
         }
 
-        public void ChangeLevel(int levelProgress)
+        public static void ChangeLevel(int levelProgress)
         {
 
-            environmentList = lg.CreateLevel(levelProgress, this.Content);
+            foreach (GameObject obj in environmentList)
+            {
+                RemoveObject(obj);
+            }
+
+
+            environmentList = lg.CreateLevel(levelProgress, content);
 
             foreach (GameObject obj in environmentList)
             {
@@ -157,19 +166,17 @@ namespace Roguelike
             }
 
      
-            currentDungeon = new Dungeon(Theme.science, new Level((int)screenSize.X, (int)screenSize.Y, environmentList));
-
 
         }
 
-        public void RemoveObject(GameObject obj)
+        public static void RemoveObject(GameObject obj)
         {
             removeList.Add(obj);
         }
 
-        public void AddObject(GameObject obj)
+        public static void AddObject(GameObject obj)
         {
-            addObject.Add(obj);
+           addObject.Add(obj);
         }
 
 

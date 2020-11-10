@@ -25,6 +25,11 @@ namespace Roguelike.Class
 
         }
 
+        public override void Initialize()
+        {
+
+        }
+
         public override void OnCollision(GameObject gameObject)
         {
             
