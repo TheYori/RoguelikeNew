@@ -39,11 +39,16 @@ namespace Roguelike
 
         public override void Update(GameTime gameTime)
         {
+            //Visuals
+            Animate(gameTime);
+
+            //Movement
             HandleInput();
             ApplyPhysics(gameTime);
             Move(gameTime);
-            Animate(gameTime);
+            Dash();
 
+            //Other
             ScreenWarp();
             ScreenLimits();
         }
@@ -134,7 +139,17 @@ namespace Roguelike
 
         private void Dash()
         {
+            KeyboardState keyState = Keyboard.GetState();
 
+            if (keyState.IsKeyDown(Keys.D) && keyState.IsKeyDown(Keys.LeftShift))
+            {
+                position += new Vector2(50, 0);
+            }
+
+            if (keyState.IsKeyDown(Keys.A) && keyState.IsKeyDown(Keys.LeftShift))
+            {
+                position += new Vector2(-50, 0);
+            }
         }  //"Dash" is technically a movement, but since we need to [manipulate] it, "Dash" have its own method
 
         private void Collect()
