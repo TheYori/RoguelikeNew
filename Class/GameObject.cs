@@ -7,21 +7,24 @@ using System.Text;
 
 namespace Roguelike.Class
 {
-    public abstract class GameObject
+    public abstract class GameObject 
     {
         protected Texture2D sprite;
         protected Vector2 origin;
         protected Color color;
-        protected Vector2 position;
+        public Vector2 position;
 
 
         protected Texture2D[] sprites;
         protected float speed;
-        protected Vector2 velocity;
+        public Vector2 velocity;
         protected Vector2 offset;
         protected float fps;
         private float timeElapsed;
         private int currentIndex;
+
+        public static int levelProgression;
+
 
         public abstract void LoadContent(ContentManager content);
         

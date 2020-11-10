@@ -156,8 +156,7 @@ namespace Roguelike
             {
                 RemoveObject(obj);
             }
-
-
+             
             environmentList = lg.CreateLevel(levelProgress, content);
 
             foreach (GameObject obj in environmentList)

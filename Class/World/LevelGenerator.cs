@@ -33,8 +33,17 @@ namespace Roguelike.Class
                 levelList.Add(new Platform(new Vector2(400, 250)));
                 levelList.Add(new Platform(new Vector2(800, 300)));
                 levelList.Add(new Platform(new Vector2(800, 500)));
+                levelList.Add(new Portal(new Vector2(100, 500)));
             }
 
+            if (levelProgression == 3)
+            {
+
+                levelList.Add(new Platform(new Vector2(400, 200)));
+                levelList.Add(new Platform(new Vector2(800, 100)));
+                levelList.Add(new Platform(new Vector2(200, 500)));
+
+            }
 
 
             foreach (GameObject obj in levelList) {
