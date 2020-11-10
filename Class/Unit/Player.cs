@@ -101,7 +101,7 @@ namespace Roguelike
                 // Allows the player to go up, but 
                 //stops the player to continue to do so, bu holding the key.
                 if (!keyHeldDown)
-                    velocity = new Vector2(velocity.X, -1);
+                    velocity = new Vector2(velocity.X, -2f);
                     keyHeldDown = true;
             }
             else
@@ -120,17 +120,7 @@ namespace Roguelike
                 //move right
                 velocity += new Vector2(1, 0);
             }
-
-            if (keyState.IsKeyDown(Keys.Space))
-            {
-                //ADD attack
-            }
-        } 
-
-        private void Jump()
-        {
-
-        }   //QUESTION: do we need the jump function to have its own method?
+        }  //Left, Right, Jump
 
         private void Dash()
         {
@@ -147,9 +137,19 @@ namespace Roguelike
             }
         }  //"Dash" is technically a movement, but since we need to [manipulate] it, "Dash" have its own method
 
+        private void Attack()
+        {
+            KeyboardState keyState = Keyboard.GetState();
+
+            if (keyState.IsKeyDown(Keys.Space))
+            {
+                //ADD attack
+            }
+        }
+
         private void Collect()
         {
-
+            // Player colli
         }
 
         private void CameraMovement()
