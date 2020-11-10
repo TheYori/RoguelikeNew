@@ -17,6 +17,11 @@ namespace Roguelike.Class
 
         }
 
+        public override void Initialize()
+        {
+
+        }
+
         public override void LoadContent(ContentManager content)
         {
 

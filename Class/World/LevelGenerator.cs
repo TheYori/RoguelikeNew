@@ -27,21 +27,27 @@ namespace Roguelike.Class
 
             }
 
-            if (levelProgression == 2)
+            if (levelProgression == 2) 
             {
 
-                // levelList.Add(new Platform(new Vector2(400, 250)));
-                // levelList.Add(new Platform(new Vector2(800, 300)));
+                levelList.Add(new Platform(new Vector2(400, 250)));
+                levelList.Add(new Platform(new Vector2(800, 300)));
                 levelList.Add(new Platform(new Vector2(800, 500)));
             }
 
 
 
             foreach (GameObject obj in levelList) {
+                obj.Initialize();
                 obj.LoadContent(content);
             }
 
             return levelList;
+        }
+
+        public override void Initialize()
+        {
+            
         }
 
         public override void LoadContent(ContentManager content)

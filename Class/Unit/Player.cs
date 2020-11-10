@@ -120,7 +120,12 @@ namespace Roguelike
             {
                 //ADD attack
             }
-        } 
+        }
+
+        public override void Initialize()
+        {
+
+        }
 
         private void Jump()
         {

@@ -4,7 +4,13 @@ using System.Text;
 
 namespace Roguelike.Class
 {
-    class Enemy
+    class Enemy : Unit
     {
+
+        public override void Initialize()
+        {
+
+        }
+
     }
 }
