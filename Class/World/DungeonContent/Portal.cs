@@ -19,7 +19,6 @@ namespace Roguelike.Class.World.DungeonContent
      
         }
 
-
         public override void LoadContent(ContentManager content)
         {
 

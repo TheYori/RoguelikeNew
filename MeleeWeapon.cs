@@ -18,7 +18,6 @@ namespace Roguelike
             
         }
 
-
         public override void LoadContent(ContentManager content)
         {
 

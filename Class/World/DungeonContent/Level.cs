@@ -12,7 +12,7 @@ namespace Roguelike.Class.World
     {
 
         private Rectangle borderSize;
-        private List<GameObject> enviromentList;
+        private List<GameObject> enviromentList; //have a spelling error - if corrected it WILL create issues
 
         public override void Initialize()
         {
@@ -32,8 +32,6 @@ namespace Roguelike.Class.World
             borderSize = new Rectangle(0, 0, mapSizeWidth, mapSizeHeight);
             this.enviromentList = enviromentList;
         }
-
-
 
         public override void LoadContent(ContentManager content)
         {
