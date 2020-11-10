@@ -169,16 +169,15 @@ namespace Roguelike
 
         }
 
+        public static void AddObject(GameObject obj)
+        {
+            addObject.Add(obj);
+        }
+
         public static void RemoveObject(GameObject obj)
         {
             removeList.Add(obj);
         }
-
-        public static void AddObject(GameObject obj)
-        {
-           addObject.Add(obj);
-        }
-
 
 
         private void DrawCollisionBox(GameObject go)

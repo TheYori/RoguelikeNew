@@ -24,7 +24,11 @@ namespace Roguelike
         // Fields for long range attack
         private Vector2 projectileSpeed;
         private bool rangeAttack;
-        
+
+        //Fields for melee attack
+        private Texture2D meleeSprite;
+        private Vector2 spawnOffset;
+
         private BoostItem[] boostList;
 
         // Fields for movements
@@ -47,6 +51,7 @@ namespace Roguelike
             ApplyPhysics(gameTime);
             Move(gameTime);
             Dash();
+            Attack();
 
             //Other
             ScreenWarp();
@@ -143,8 +148,9 @@ namespace Roguelike
 
             if (keyState.IsKeyDown(Keys.Space))
             {
-                //ADD attack
+                GameManager.AddObject(new MeleeWeapon(meleeSprite, new Vector2(position.X + spawnOffset.X, position.Y + spawnOffset.Y)));
             }
+            
         }
 
         private void Collect()
@@ -174,6 +180,12 @@ namespace Roguelike
 
         public override void LoadContent(ContentManager content)
         {
+            // Spawns weapon away from player
+            spawnOffset = new Vector2(50, -105);
+
+            //Loads melee weapon
+            meleeSprite = content.Load<Texture2D>("weaponRight");
+
             //Instantiates the sprite array
             sprites = new Texture2D[2];
 

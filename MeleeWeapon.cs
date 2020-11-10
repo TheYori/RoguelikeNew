@@ -10,10 +10,12 @@ namespace Roguelike
 {
     class MeleeWeapon : Player
     {
+
         public MeleeWeapon(Texture2D sprite, Vector2 position)
         {
             this.sprite = sprite;
             this.position = position;
+            
         }
 
 
@@ -29,7 +31,7 @@ namespace Roguelike
 
         public override void OnCollision(GameObject other)
         {
-            this.offset = new Vector2(sprite.Width / -2, sprite.Height / -2); //Centers the Collison box
+            this.offset = new Vector2(sprite.Width * -0f, sprite.Height * -0f); //Centers the Collison box
 
             if (other is Enemy)
             {
