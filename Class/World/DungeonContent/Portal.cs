@@ -38,13 +38,10 @@ namespace Roguelike.Class.World.DungeonContent
             if (gameObject is Player && portalActive)
             {
 
-                //color = Color.Red;
-                //levelProgress++;
-                //portalActive =false;
-                //RemoveObject(this);
+                levelProgression++;
                 portalActive = false;
                 GameManager.RemoveObject(this);
-                GameManager.ChangeLevel(2);
+                GameManager.ChangeLevel(levelProgression);
             }
 
 

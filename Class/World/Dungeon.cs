@@ -14,8 +14,6 @@ namespace Roguelike.Class
 
         protected Theme dungeonTheme;
         protected Level level;
-        protected Texture2D PlatformSprite;
-        protected Texture2D backDropSprite;
 
 
         public Dungeon(Theme theme, Level level)

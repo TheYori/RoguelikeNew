@@ -29,5 +29,25 @@ namespace Roguelike.Class
 
 
         }
+
+        public override void OnCollision(GameObject gameObject)
+        {
+            if(gameObject is Unit)
+            {
+
+                if(CollisionBox.Bottom > gameObject.CollisionBox.Bottom)
+                {
+                    color = Color.Black;
+
+                    gameObject.velocity = new Vector2(velocity.X, 0f);
+
+                    gameObject.position = new Vector2(gameObject.position.X, CollisionBox.Top);
+
+                }
+            }
+
+            base.OnCollision(gameObject);
+        }
+
     }
 }
