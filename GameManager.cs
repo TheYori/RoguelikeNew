@@ -63,10 +63,12 @@ namespace Roguelike
 
             // TODO: Add your initialization logic here
             Player player = new Player();
+            currentDungeon = new Dungeon(Theme.science, new Level((int)screenSize.X, (int)screenSize.Y, environmentList));
 
-         
             //gameObjects.Add(currentDungeon);
+            gameObjects.Add(currentDungeon);
             gameObjects.Add(player);
+
     
             base.Initialize();
         }
