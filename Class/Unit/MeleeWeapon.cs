@@ -8,9 +8,8 @@ using System.Text;
 
 namespace Roguelike
 {
-    class MeleeWeapon : GameObject
+    public class MeleeWeapon : GameObject
     {
-        private Vector2 changePosition;
 
         public MeleeWeapon(Vector2 position)
         {
@@ -19,6 +18,8 @@ namespace Roguelike
             origin = Vector2.Zero;
 
         }
+
+
 
         public override void Initialize()
         {

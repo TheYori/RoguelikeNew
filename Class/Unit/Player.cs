@@ -61,6 +61,8 @@ namespace Roguelike
             //Other
             ScreenWarp();
             ScreenLimits();
+
+            
         }
 
         private void ScreenWarp()
@@ -154,11 +156,12 @@ namespace Roguelike
         private void Attack()
         {
             
-
             KeyboardState keyState = Keyboard.GetState();
 
             if (keyState.IsKeyDown(Keys.Space) && spaceHeldDown == true)
             {
+                weapon.position.X = position.X + sprite.Width / 2;
+                weapon.position.Y = position.Y + sprite.Height / -2;
                 GameManager.AddObject(weapon);
                 spaceHeldDown = false;
             }

@@ -34,7 +34,7 @@ namespace Roguelike
         private Texture2D collisionTexture;
         public static Vector2 GetScreenSize { get => screenSize; }
         public static ContentManager content;
-        MeleeWeapon weapon;
+        public MeleeWeapon weapon;
 
         Dungeon currentDungeon;
 
