@@ -8,13 +8,14 @@ using Microsoft.Xna.Framework.Content;
 using SharpDX.Direct3D9;
 using System.Diagnostics;
 using System.Linq;
-
+using Microsoft.Xna.Framework.Audio;
 
 namespace Roguelike.Class
 {
     class Enemy : Unit
     {
-
+        // Sound
+        private SoundEffectInstance deathSound;
         // - Draw parameters -//
         private Texture2D enemyTexture;
         private Texture2D[] myfishy = new Texture2D[6];
@@ -187,6 +188,12 @@ namespace Roguelike.Class
                 colorDuration = 0.5f;
             }
 
+            if (isEnemyDead == true && base.Alpha < 0)
+            {
+                GameManager.RemoveObject(this);
+            }
+
+
             #region Debug
 
             //-- Debug Movement --//
@@ -197,6 +204,16 @@ namespace Roguelike.Class
             //    effects = SpriteEffects.FlipHorizontally;
 
             //}
+
+
+            /*
+            if (Keyboard.GetState().IsKeyDown(Keys.D))
+            {
+                deathSound.Play();
+
+            }
+            */
+
 
             //else if (Keyboard.GetState().IsKeyDown(Keys.A))
             //{
@@ -273,9 +290,10 @@ namespace Roguelike.Class
             //        isTestKeyDown = true;
             //    }
 
-            #endregion
+
 
             //}
+            #endregion
         }
 
         public override void Initialize()
@@ -300,6 +318,10 @@ namespace Roguelike.Class
 
             enemyRectangle = new Rectangle(0, 0, enemyTexture.Width, enemyTexture.Height);
             sprite = enemyTexture;
+
+            deathSound = Content.Load<SoundEffect>("DeathSound").CreateInstance();
+
+
         }
 
 
@@ -354,6 +376,7 @@ namespace Roguelike.Class
         /// </summary>
         public void EnemyDeath()
         {
+            deathSound.Play();
             isMoving = false;
            base.color = Color.Red;
             base.Alpha -= 0.02f;
