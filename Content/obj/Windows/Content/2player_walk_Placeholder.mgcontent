@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Isak Køster/Source/Repos/RoguelikeNew/Content/2player_walk_Placeholder.png</SourceFile>
-  <SourceTime>2020-11-11T13:20:36.9763606+01:00</SourceTime>
-  <DestFile>C:/Users/Isak Køster/Source/Repos/RoguelikeNew/Content/bin/Windows/Content/2player_walk_Placeholder.xnb</DestFile>
-  <DestTime>2020-11-11T13:20:52.9246521+01:00</DestTime>
+  <SourceFile>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/2player_walk_Placeholder.png</SourceFile>
+  <SourceTime>2020-11-09T10:36:26.586857+01:00</SourceTime>
+  <DestFile>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/bin/Windows/Content/2player_walk_Placeholder.xnb</DestFile>
+  <DestTime>2020-11-11T13:58:44.1008228+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
