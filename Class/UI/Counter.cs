@@ -15,27 +15,27 @@ namespace Roguelike.Class.UI
             _scale = scale;
             color = Color.White;
             origin = new Vector2(256, 256);
-            _rotation = rotation;
+            base._rotation = rotation;
         }
 
         public override void Update(GameTime gameTime)
         {
             // Rotation Animation for Counter
-            if (rotating)
+            if (rotating == true)
             {
-                _rotation += 10f;
+                base._rotation += 0.001f;
 
-                if (_rotation >= 20f)
+                if (base._rotation >= 0.09f)
                 {
                     rotating = false;
                 }
             }
 
-            if (!rotating)
+            if (rotating == false)
             {
-                _rotation -= 0.001f;
+                base._rotation -= 0.001f;
 
-                if (_rotation <= 0.01f)
+                if (base._rotation <= 0.01f)
                 {
                     rotating = true;
                 }
