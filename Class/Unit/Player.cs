@@ -36,9 +36,6 @@ namespace Roguelike
 
         //bool dashHeldDown;
 
-        //float timer = 2; 
-        //const float TIMER = 2;
-
         public Player()
         {
             color = Color.White; //Racist Motherf*cker!
@@ -135,18 +132,14 @@ namespace Roguelike
 
         private void Dash(GameTime gameTime)
         {
-            //float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            //timer -= elapsed;
 
             KeyboardState keyState = Keyboard.GetState();
 
             if (keyState.IsKeyDown(Keys.D) && keyState.IsKeyDown(Keys.LeftShift))
             {
-                //if (timer > 0)
-                //{
+                {
                     position += new Vector2(50, 0);
-                //    timer = TIMER;   //Reset Timer
-                //}
+                }
             }
 
             if (keyState.IsKeyDown(Keys.A) && keyState.IsKeyDown(Keys.LeftShift))
