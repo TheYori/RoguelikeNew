@@ -17,6 +17,7 @@ namespace Roguelike.Class
 
         protected Texture2D[] sprites;
         protected float speed;
+        protected float _scale = 1f;
         public Vector2 velocity;
         protected Vector2 offset;
         protected float fps;
@@ -58,7 +59,7 @@ namespace Roguelike.Class
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, position, null , color*Alpha, 0, origin, 1f, effects, 0);
+            spriteBatch.Draw(sprite, position, null , color*Alpha, 0, origin, _scale, effects, 0);
         } 
 
         //positions the collisionbox rectangle
