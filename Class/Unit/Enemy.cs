@@ -399,7 +399,7 @@ namespace Roguelike.Class
         {
             if (gameObject is MeleeWeapon)
             {
-                GameManager.RemoveObject(this);
+                EnemyDeath();
                 GameManager.monstersLeft--;
 
                 if(GameManager.monstersLeft <= 0)
