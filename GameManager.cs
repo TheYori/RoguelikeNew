@@ -34,6 +34,7 @@ namespace Roguelike
         private Texture2D collisionTexture;
         public static Vector2 GetScreenSize { get => screenSize; }
         public static ContentManager content;
+        MeleeWeapon weapon;
 
         Dungeon currentDungeon;
 
@@ -60,12 +61,13 @@ namespace Roguelike
             removeList = new List<GameObject>();
             gameObjects = new List<GameObject>();
             environmentList = new List<GameObject>();
-
+            weapon = new MeleeWeapon(new Vector2(10, 10));
             // TODO: Add your initialization logic here
-            Player player = new Player();
+            Player player = new Player(weapon);
             currentDungeon = new Dungeon(Theme.science, new Level((int)screenSize.X, (int)screenSize.Y, environmentList));
 
             //gameObjects.Add(currentDungeon);
+            gameObjects.Add(weapon);
             gameObjects.Add(currentDungeon);
             gameObjects.Add(player);
 
