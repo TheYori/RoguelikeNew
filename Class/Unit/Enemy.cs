@@ -109,6 +109,9 @@ namespace Roguelike.Class
 
         public Enemy(Vector2 position, int direction, int health)
         {
+
+            color = Color.White;
+
             _position = position;
             if (direction == 0)
             {
@@ -123,12 +126,13 @@ namespace Roguelike.Class
 
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             var delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             deltaTime = delta;
 
+  
 
             if (gameStart == false)
             {
@@ -192,7 +196,7 @@ namespace Roguelike.Class
 
             }
 
-            if(isHit == true)
+            if (isHit == true)
             {
                 myColor = Color.Red;
                 colorDuration -= deltaTime;
@@ -204,6 +208,8 @@ namespace Roguelike.Class
                 myColor = Color.White;
                 colorDuration = 0.5f;
             }
+
+            #region Debug
 
             //-- Debug Movement --//
             //if (Keyboard.GetState().IsKeyDown(Keys.D))
@@ -279,6 +285,7 @@ namespace Roguelike.Class
 
             //}
 
+            #endregion
 
         }
 
@@ -303,19 +310,11 @@ namespace Roguelike.Class
 
 
             enemyRectangle = new Rectangle(0, 0, enemyTexture.Width, enemyTexture.Height);
+            sprite = enemyTexture;
         }
 
 
 
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
-        {
-
-            //_spriteBatch.Draw(fisk, fiskRectangle, Color.White);
-            // Vector2 _position = new Vector2(300);
-
-            spriteBatch.Draw(enemyTexture, _position, enemyRectangle, myColor * alpha, rotation, origin, scale, effects, layerDepth);
-
-        }
 
         public void Hit()
         {
@@ -348,7 +347,7 @@ namespace Roguelike.Class
         /// <summary>
         /// Animate enemy Sprite
         /// </summary>
-        protected void Animate(GameTime gameTime)
+        protected override void Animate(GameTime gameTime)
         {
             timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
             fishProgress = (int)(timeElapsed * fps);
@@ -357,7 +356,7 @@ namespace Roguelike.Class
                 timeElapsed = 0;
                 fishProgress = 0;
             }
-            enemyTexture = myfishy[fishProgress];
+            sprite = myfishy[fishProgress];
 
         }
 

@@ -50,7 +50,7 @@ namespace Roguelike.Class
 
         public override void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+           
         }
     }
 }

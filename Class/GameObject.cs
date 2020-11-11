@@ -65,7 +65,7 @@ namespace Roguelike.Class
             return false;
         } 
 
-        protected void Animate(GameTime gameTime)
+        protected  virtual void Animate(GameTime gameTime)
         {
             //Adds time that has passed since last update
             timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
