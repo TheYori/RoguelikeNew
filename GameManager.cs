@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Roguelike.Class;
+using Roguelike.Class.UI;
 using Roguelike.Class.World;
 using Roguelike.Class.World.DungeonContent;
 using System.Collections.Generic;
@@ -25,8 +26,11 @@ namespace Roguelike
         public static List<GameObject> environmentList;
         static List<GameObject> removeList;
         private static List<GameObject> addObject;
+        private List<Heart> hearts;
+        private Counter monsterUI;
 
-        
+
+
         public static LevelGenerator lg;
 
         //player
@@ -63,11 +67,22 @@ namespace Roguelike
 
             // TODO: Add your initialization logic here
             Player player = new Player();
+            hearts = new List<Heart>(3) {
+                new Heart(new Vector2(150, 150), 0.05f),
+                new Heart(new Vector2(250, 150),0.05f),
+                new Heart(new Vector2(350, 150), 0.05f)
+              };
+            monsterUI = new Counter(new Vector2(300, 300), 0.3f, 0f);
             currentDungeon = new Dungeon(Theme.science, new Level((int)screenSize.X, (int)screenSize.Y, environmentList));
 
             //gameObjects.Add(currentDungeon);
             gameObjects.Add(currentDungeon);
             gameObjects.Add(player);
+            foreach (GameObject obj in hearts)
+            {
+                gameObjects.Add(obj);
+            }
+            gameObjects.Add(monsterUI);
 
     
             base.Initialize();
