@@ -110,9 +110,11 @@ namespace Roguelike.Class
         public Enemy(Vector2 position, int direction, int health)
         {
 
-            color = Color.White;
+            color = Color.White * Alpha;
 
             _position = position;
+            Type = UnitType.AnEnemy;
+            
             if (direction == 0)
             {
                 isMovingLeft = true;
@@ -187,7 +189,7 @@ namespace Roguelike.Class
 
             if (isMoving == true)
             {
-                Animate(gameTime);
+                AnimateE(gameTime);
             }
 
             if (isEnemyDead == true)
@@ -347,7 +349,7 @@ namespace Roguelike.Class
         /// <summary>
         /// Animate enemy Sprite
         /// </summary>
-        protected override void Animate(GameTime gameTime)
+        protected void AnimateE(GameTime gameTime)
         {
             timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
             fishProgress = (int)(timeElapsed * fps);
