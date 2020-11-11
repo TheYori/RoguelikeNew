@@ -372,11 +372,18 @@ namespace Roguelike.Class
 
         public override void OnCollision(GameObject gameObject)
         {
-
-            if (gameObject is Player)
+            if (gameObject is MeleeWeapon)
             {
+                GameManager.RemoveObject(this);
+            }
+
+                if (gameObject is Player)
+            {
+
+                gameObject.TakeHit();
+                GameManager.UpdateHealthUi(gameObject.health);
                 gameObject.health--;
-                
+
 
             }
 

@@ -13,7 +13,7 @@ using Environment = Roguelike.Class.Environment;
 
 namespace Roguelike
 {
-    class Player : Unit
+    public class Player : Unit
     {
         // Fields for Dash ability
         private float dashRange;
@@ -44,7 +44,7 @@ namespace Roguelike
             speed = 500f;
             Type = UnitType.APlayer;
             weapon = myweapon;
-            health = 3;
+            health = 2;
         }
 
         public override void Update(GameTime gameTime)
@@ -193,15 +193,13 @@ namespace Roguelike
 
         }
 
-        public void CheckBoostitem(BoostItem boostItem)
-        {
-
-        }
-
+    
         private void RemoveBoost(BoostItem boostItem)
         {
 
         }
+
+   
 
         public override void LoadContent(ContentManager content)
         {
