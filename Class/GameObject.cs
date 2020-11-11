@@ -49,12 +49,10 @@ namespace Roguelike.Class
 
         public static int levelProgression;
 
-
+        public abstract void Initialize();
         public abstract void LoadContent(ContentManager content);
         
         public abstract void Update(GameTime gameTime);
-
-        public abstract void Initialize();
 
         public abstract void OnCollision(GameObject gameObject); 
 
