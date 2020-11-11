@@ -191,10 +191,14 @@ namespace Roguelike
 
         public static void UpdateHealthUi(int health) {
 
-            RemoveObject(hearts[health]);
+            if(health >= 0)
+            {
+                RemoveObject(hearts[health]);
+
+            }
 
 
-            if(health == 0)
+            if (health == 0)
             {
                //Die
             }

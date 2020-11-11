@@ -4,29 +4,29 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/1player_walk_Placeholder.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/2player_walk_Placeholder.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/charecterDesign2.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/CollisionTexture.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Counter.spritefont</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/DeathSound.wav</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/DeatSound.mp3</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/EnemyF1.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/EnemyF2.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/EnemyF3.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/EnemyF4.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/EnemyF5.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/EnemyF6.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Ground.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Hearth.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/MonsterIcon.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/platFormDummyBigSize.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/platFormDummyLargSize.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/platFormDummyNormalSize.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Portal.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/ScienceLabBackDrop.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/weaponLeft.png</File>
-    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/weaponRight.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/1player_walk_Placeholder.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/2player_walk_Placeholder.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/charecterDesign2.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/CollisionTexture.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/Counter.spritefont</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/DeathSound.wav</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/DeatSound.mp3</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/EnemyF1.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/EnemyF2.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/EnemyF3.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/EnemyF4.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/EnemyF5.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/EnemyF6.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/Ground.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/Hearth.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/MonsterIcon.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/platFormDummyBigSize.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/platFormDummyLargSize.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/platFormDummyNormalSize.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/Portal.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/ScienceLabBackDrop.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/weaponLeft.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/weaponRight.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

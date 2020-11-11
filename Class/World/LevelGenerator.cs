@@ -23,6 +23,7 @@ namespace Roguelike.Class
             {
                 levelList.Add(new Floor(new Vector2(0, 992)));
 
+                //hvor mange fjnder er der i dette level.
                 GameManager.monstersLeft = 1;
 
                 levelList.Add(new Enemy(new Vector2(150, 980), 1, 5));
