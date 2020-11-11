@@ -22,7 +22,7 @@ namespace Roguelike.Class
             {
                 levelList.Add(new Floor(new Vector2(0, 992)));
 
-                levelList.Add(new Enemy(new Vector2(100,100)));
+                levelList.Add(new Enemy(new Vector2(100,100),0,1));
                 levelList.Add(new SmallPlatform(new Vector2(400, 800)));
                 levelList.Add(new SmallPlatform(new Vector2(800, 500)));
                 levelList.Add(new LargePlatform(new Vector2(800, 200)));
@@ -40,7 +40,7 @@ namespace Roguelike.Class
                 levelList.Add(new Platform(new Vector2(800, 300)));
                 levelList.Add(new Platform(new Vector2(800, 500)));
                 levelList.Add(new Portal(new Vector2(100, 500)));
-                levelList.Add(new NPC(new Vector2(100, 100)));
+                //levelList.Add(new NPC(new Vector2(100, 100)));
             }
 
             if (levelProgression == 3)
