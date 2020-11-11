@@ -9,8 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework.Media;
-
-
+using Environment = Roguelike.Class.Environment;
 
 namespace Roguelike
 {
@@ -32,7 +31,9 @@ namespace Roguelike
         private BoostItem[] boostList;
 
         // Fields for movements
-        bool jumpHeldDown;
+        private bool jumpHeldDown;
+        private bool jumpAllowed;
+
         //bool dashHeldDown;
 
         //float timer = 2; 
@@ -105,13 +106,14 @@ namespace Roguelike
             KeyboardState keyState = Keyboard.GetState();
 
             //if we press W
-            if (keyState.IsKeyDown(Keys.W))
+            if (keyState.IsKeyDown(Keys.W) && jumpAllowed == true)
             {
                 // Allows the player to go up, but 
                 //stops the player to continue to do so, bu holding the key.
                 if (!jumpHeldDown)
                     velocity = new Vector2(velocity.X, -2f);
                     jumpHeldDown = true;
+                    jumpAllowed = false;
             }
             else
                 jumpHeldDown = false;
@@ -219,6 +221,10 @@ namespace Roguelike
         public override void OnCollision(GameObject gameObject)
         {
             this.offset = new Vector2(sprite.Width / -2, sprite.Height * -1); //Centers the Collison box
+            if (gameObject is Environment)
+            {
+                jumpAllowed = true;
+            }
         }
     }
 }
