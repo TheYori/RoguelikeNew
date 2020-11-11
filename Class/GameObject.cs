@@ -9,7 +9,7 @@ namespace Roguelike.Class
 {
     public abstract class GameObject 
     {
-        protected Texture2D sprite;
+        public Texture2D sprite;
         protected Vector2 origin;
         protected Color color;
         public Vector2 position;

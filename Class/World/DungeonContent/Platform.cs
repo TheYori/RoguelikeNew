@@ -34,13 +34,14 @@ namespace Roguelike.Class
         {
             if(gameObject is Unit)
             {
+          
 
-                if (CollisionBox.Bottom > gameObject.CollisionBox.Bottom && gameObject.velocity.Y > 0f)
+                if (position.Y - sprite.Height > gameObject.position.Y - gameObject.sprite.Height && gameObject.velocity.Y > 0f)
                 {
                     color = Color.Black;
 
                   
-                        gameObject.velocity = new Vector2(gameObject.velocity.X, 0f);
+                    gameObject.velocity = new Vector2(gameObject.velocity.X, 0f);
                     gameObject.position = new Vector2(gameObject.position.X, CollisionBox.Top);
                 
 
