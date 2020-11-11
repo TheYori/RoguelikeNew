@@ -1,16 +1,330 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Content;
+using SharpDX.Direct3D9;
+using System.Diagnostics;
+using System.Linq;
+
 
 namespace Roguelike.Class
 {
     class Enemy : Unit
     {
 
+
+        private Texture2D enemyTexture;
+        private Texture2D[] myfishy = new Texture2D[6];
+        private Rectangle enemyRectangle;
+        private Vector2 _position;
+        private float scale = 0.5f;
+        private Vector2 origin = Vector2.Zero;
+        private float rotation;
+        private SpriteEffects effects = new SpriteEffects();
+        private SpriteEffects s = SpriteEffects.FlipHorizontally;
+        private float alpha = 1f;
+        public Color myColor = Color.White;
+
+        Random rnd = new Random();
+        private int enemyDirection;
+
+
+
+
+        public bool gameStart;
+        public bool stateOne = true;
+        public bool stateTwo;
+        public bool isMoving = true;
+        public bool isMovingRight;
+        public bool isMovingLeft;
+        public bool isTestKeyDown = false;
+
+        public float behaviorTime = 4;
+        public float deathTime = 4;
+        private float moveTime = 3;
+        private float maxMoveTime = 3;
+
+        private float layerDepth;
+        public int fishProgress = 0;
+        public float fps = 15;
+        public float timeElapsed;
+        public bool isEnemyDead;
+        public Vector2 testPosition = new Vector2(500f, 0f);
+        public Vector2 offset;
+
+        private int ID;
+
+
+
+        public float deltaTime;
+
+        private float speed = 150;
+        public Rectangle EnemyRectangle
+        {
+            get
+            {
+                return new Rectangle(
+                       (int)(_position.X + offset.X),
+                       (int)(_position.Y + offset.Y),
+                       enemyTexture.Width,
+                       enemyTexture.Height
+                   );
+            }
+            set
+            {
+                enemyRectangle = value;
+            }
+        }
+
+
+
+
+        public Enemy(Vector2 position, int direction, int health)
+        {
+            _position = position;
+            if (direction == 0)
+            {
+                isMovingLeft = true;
+            }
+            else
+            {
+                isMovingRight = true;
+            }
+
+            this.health = health;
+
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            var delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            deltaTime = delta;
+
+
+            if (gameStart == false)
+            {
+                effects = SpriteEffects.FlipHorizontally;
+                //int enemyDirection = rnd.Next(1, 2);
+                gameStart = true;
+
+                if (enemyDirection == 0)
+                {
+                    isMovingLeft = true;
+                }
+                else if (enemyDirection == 1)
+                {
+                    isMovingRight = true;
+                }
+
+            }
+
+
+            if (moveTime > 0 && isMoving == true)
+            {
+                moveTime -= delta;
+                if (isMovingRight == true)
+                {
+                    MoveRight();
+                }
+                else if (isMovingLeft == true)
+                {
+                    MoveLeft();
+                }
+            }
+            else if (moveTime < 0 && isMoving == true)
+            {
+                if (isMovingRight == true)
+                {
+                    isMovingRight = false;
+                    isMovingLeft = true;
+                }
+                else if (isMovingLeft == true)
+                {
+                    isMovingLeft = false;
+                    isMovingRight = true;
+                }
+                moveTime = maxMoveTime;
+            }
+
+            if (health <= 0)
+            {
+                isEnemyDead = true;
+            }
+            //-- Debug Movement --//
+            //if (Keyboard.GetState().IsKeyDown(Keys.D))
+            //{
+            //    isMoving = true;
+            //    _position.X += speed * delta;
+            //    effects = SpriteEffects.FlipHorizontally;
+
+            //}
+
+            //else if (Keyboard.GetState().IsKeyDown(Keys.A))
+            //{
+            //    isMoving = true;
+            //    _position.X -= speed * delta;
+            //    effects = SpriteEffects.None;
+            //}
+
+            //else if (Keyboard.GetState().IsKeyDown(Keys.W))
+            //{
+            //    isMoving = true;
+            //    _position.Y -= speed * delta;
+            //}
+            //else if (Keyboard.GetState().IsKeyDown(Keys.S))
+            //{
+            //    isMoving = true;
+            //    _position.Y += speed * delta;
+
+            //}
+            //else
+            //{
+            //    isMoving = false;
+            //}
+
+
+            if (isMoving == true)
+            {
+                Animate(gameTime);
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.N))
+            {
+
+
+                isEnemyDead = true;
+
+
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.M))
+            {
+                Reveal();
+            }
+
+
+            if (isEnemyDead == true)
+            {
+                EnemyDeath();
+
+            }
+
+            //--Debug DealDamage() -- //
+
+            //if(Keyboard.GetState().IsKeyDown(Keys.L))
+            //{
+            //    if (isTestKeyDown == false)
+            //    {
+
+            //        DealDamage(5);
+            //        isTestKeyDown = true;
+            //    }
+
+            //}
+            //else if(Keyboard.GetState().IsKeyUp(Keys.L))
+            //{
+            //        isTestKeyDown = false;
+
+            //}
+
+
+        }
+
         public override void Initialize()
         {
 
         }
+
+        public void MoveRight()
+        {
+            isMoving = true;
+            _position.X += speed * deltaTime;
+            effects = SpriteEffects.FlipHorizontally;
+        }
+        public void MoveLeft()
+        {
+            isMoving = true;
+            _position.X -= speed * deltaTime;
+            effects = SpriteEffects.None;
+        }
+        public void LoadContent(ContentManager Content)
+        {
+
+
+            enemyTexture = Content.Load<Texture2D>("EnemyF1");
+
+            myfishy[0] = Content.Load<Texture2D>("EnemyF1");
+            myfishy[1] = Content.Load<Texture2D>("EnemyF2");
+            myfishy[2] = Content.Load<Texture2D>("EnemyF3");
+            myfishy[3] = Content.Load<Texture2D>("EnemyF4");
+            myfishy[4] = Content.Load<Texture2D>("EnemyF5");
+            myfishy[5] = Content.Load<Texture2D>("EnemyF6");
+
+
+            enemyRectangle = new Rectangle(0, 0, enemyTexture.Width, enemyTexture.Height);
+        }
+
+
+
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+
+            //_spriteBatch.Draw(fisk, fiskRectangle, Color.White);
+            // Vector2 _position = new Vector2(300);
+
+            spriteBatch.Draw(enemyTexture, _position, enemyRectangle, myColor * alpha, rotation, origin, scale, effects, layerDepth);
+
+        }
+
+        protected void Animate(GameTime gameTime)
+        {
+            timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            fishProgress = (int)(timeElapsed * fps);
+            if (fishProgress > myfishy.Length - 1)
+            {
+                timeElapsed = 0;
+                fishProgress = 0;
+            }
+            enemyTexture = myfishy[fishProgress];
+
+        }
+        public void EnemyDeath()
+        {
+            isMoving = false;
+            myColor = Color.Red;
+            alpha -= 0.02f;
+
+        }
+        public void Reveal()
+        {
+            isEnemyDead = false;
+            alpha += 0.02f;
+            myColor = Color.White;
+        }
+
+        public float Alpha
+        {
+            get
+            {
+                return alpha;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    alpha = value;
+                }
+                else
+                {
+                    alpha = 0;
+                }
+            }
+        }
+
 
     }
 }
