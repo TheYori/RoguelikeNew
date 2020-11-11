@@ -286,7 +286,7 @@ namespace Roguelike.Class
             //        isTestKeyDown = true;
             //    }
 
-            //    #endregion
+            #endregion
 
             //}
         }
