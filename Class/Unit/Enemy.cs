@@ -143,7 +143,7 @@ namespace Roguelike.Class
             }
 
 
-            if (moveTime > 0 && isMoving == true)
+            if (isMoving == true)
             {
                 moveTime -= delta;
                 if (isMovingRight == true)
@@ -155,20 +155,7 @@ namespace Roguelike.Class
                     MoveLeft();
                 }
             }
-            else if (moveTime < 0 && isMoving == true)
-            {
-                if (isMovingRight == true)
-                {
-                    isMovingRight = false;
-                    isMovingLeft = true;
-                }
-                else if (isMovingLeft == true)
-                {
-                    isMovingLeft = false;
-                    isMovingRight = true;
-                }
-                moveTime = maxMoveTime;
-            }
+           
 
             if (base.health <= 0)
             {
@@ -383,6 +370,31 @@ namespace Roguelike.Class
             base.color = Color.White;
         }
 
+        public override void OnCollision(GameObject gameObject)
+        {
+
+            if (gameObject is Environment)
+            {
+
+
+               if(position.X + sprite.Width > gameObject.position.X + gameObject.sprite.Width)
+                {
+                    isMovingLeft = true;
+                    isMovingRight = false;
+
+                }
+
+                if (position.X < gameObject.position.X )
+                {
+                    isMovingLeft = false;
+                    isMovingRight = true;
+
+                }
+
+
+
+            }
+        }
 
 
     }

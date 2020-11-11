@@ -26,10 +26,12 @@ namespace Roguelike.Class
                 levelList.Add(new Heart(new Vector2(200, 100), 0.05f));
                 levelList.Add(new Heart(new Vector2(300, 100), 0.05f));
 
-                levelList.Add(new Enemy(new Vector2(800,250),1,5));
+                levelList.Add(new Enemy(new Vector2(800,80),1,5));
                 levelList.Add(new SmallPlatform(new Vector2(400, 800)));
                 levelList.Add(new SmallPlatform(new Vector2(800, 500)));
                 levelList.Add(new LargePlatform(new Vector2(800, 200)));
+
+                levelList.Add(new Enemy(new Vector2(120, 480), 1, 5));
                 levelList.Add(new Platform(new Vector2(100, 600)));
               
 
