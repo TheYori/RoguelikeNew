@@ -17,7 +17,7 @@ namespace Roguelike.Class
 
 
 
-        protected int health;
+
 
         protected UnitType Type = UnitType.None;
         public int DealDamage(int a)
@@ -26,7 +26,7 @@ namespace Roguelike.Class
             
         }
 
-   
+
 
 
         protected void Move(GameTime gameTime)

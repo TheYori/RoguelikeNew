@@ -44,6 +44,7 @@ namespace Roguelike
             speed = 500f;
             Type = UnitType.APlayer;
             weapon = myweapon;
+            health = 3;
         }
 
         public override void Update(GameTime gameTime)
