@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Bruger/source/repos/RoguelikeNew/Content/platFormDummyNormalSize.png</SourceFile>
-  <SourceTime>2020-11-08T15:25:52.5408637+01:00</SourceTime>
-  <DestFile>C:/Users/Bruger/source/repos/RoguelikeNew/Content/bin/Windows/Content/platFormDummyNormalSize.xnb</DestFile>
-  <DestTime>2020-11-11T10:36:23.3274517+01:00</DestTime>
+  <SourceFile>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/platFormDummyNormalSize.png</SourceFile>
+  <SourceTime>2020-11-09T10:36:26.6686389+01:00</SourceTime>
+  <DestFile>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/bin/Windows/Content/platFormDummyNormalSize.xnb</DestFile>
+  <DestTime>2020-11-10T13:12:32.6950296+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
