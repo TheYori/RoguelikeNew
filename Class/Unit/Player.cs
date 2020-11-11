@@ -27,6 +27,8 @@ namespace Roguelike
         //Fields for melee attack
         private Texture2D meleeSprite;
         private Vector2 spawnOffset;
+        private bool spaceHeldDown;
+        private GameObject weapon;
 
         private BoostItem[] boostList;
 
@@ -150,12 +152,19 @@ namespace Roguelike
 
         private void Attack()
         {
+            weapon = new MeleeWeapon(meleeSprite, new Vector2(position.X + spawnOffset.X, position.Y + spawnOffset.Y));
+
             KeyboardState keyState = Keyboard.GetState();
 
-            if (keyState.IsKeyDown(Keys.Space))
+            if (keyState.IsKeyDown(Keys.Space) && spaceHeldDown == true)
             {
-
-                GameManager.AddObject(new MeleeWeapon(meleeSprite, new Vector2(position.X + spawnOffset.X, position.Y + spawnOffset.Y)));
+                GameManager.AddObject(weapon);
+                spaceHeldDown = false;
+            }
+            if (!keyState.IsKeyDown(Keys.Space) && spaceHeldDown == false)
+            {
+                GameManager.RemoveObject(weapon);
+                spaceHeldDown = true;
             }
         }
 

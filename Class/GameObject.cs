@@ -36,7 +36,7 @@ namespace Roguelike.Class
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, position, null , color, 0, origin, 1f, SpriteEffects.None, 0);
+            spriteBatch.Draw(sprite, position, null , Color.White, 0, origin, 1f, SpriteEffects.None, 0);
         } 
 
         //positions the collisionbox rectangle

@@ -8,13 +8,18 @@ using System.Text;
 
 namespace Roguelike
 {
-    class MeleeWeapon : Player
+    class MeleeWeapon : GameObject
     {
 
         public MeleeWeapon(Texture2D sprite, Vector2 position)
         {
             this.sprite = sprite;
             this.position = position;
+            
+        }
+
+        public override void Initialize()
+        {
             
         }
 
