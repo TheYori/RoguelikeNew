@@ -39,7 +39,7 @@ namespace Roguelike
 
         public Player(MeleeWeapon myweapon)
         {
-            color = Color.White; //Racist Motherf*cker!
+            color = Color.White; 
             fps = 6;
             speed = 500f;
             Type = UnitType.APlayer;
@@ -203,8 +203,8 @@ namespace Roguelike
         {
             // Spawns weapon away from player
             spawnOffset = new Vector2(50, -105);
+            sprite = content.Load<Texture2D>("weaponRight");
 
-      
             //Instantiates the sprite array
             sprites = new Texture2D[2];
 

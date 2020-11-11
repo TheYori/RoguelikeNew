@@ -29,9 +29,6 @@ namespace Roguelike
         {
             //Loads melee weapon
             sprite = content.Load<Texture2D>("weaponRight");
-            
-
-
         }
         public override void Update(GameTime gameTime)
         {
