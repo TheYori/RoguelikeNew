@@ -1,9 +1,2 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/ricki/source/repos/RoguelikeNew2/Content/1player_walk_Placeholder.png","C:/Users/ricki/source/repos/RoguelikeNew2/Content/bin/Windows/1player_walk_Placeholder.xnb","TextureProcessor","Texture2DContent",4856,35285,0,309015
-"C:/Users/ricki/source/repos/RoguelikeNew2/Content/2player_walk_Placeholder.png","C:/Users/ricki/source/repos/RoguelikeNew2/Content/bin/Windows/2player_walk_Placeholder.xnb","TextureProcessor","Texture2DContent",5450,35285,0,01625
-"C:/Users/ricki/source/repos/RoguelikeNew2/Content/CollisionTexture.png","C:/Users/ricki/source/repos/RoguelikeNew2/Content/bin/Windows/CollisionTexture.xnb","TextureProcessor","Texture2DContent",2804,485,0,0147392
-"C:/Users/ricki/source/repos/RoguelikeNew2/Content/platFormDummyNormalSize.png","C:/Users/ricki/source/repos/RoguelikeNew2/Content/bin/Windows/platFormDummyNormalSize.xnb","TextureProcessor","Texture2DContent",14901,60085,0,0179428
-"C:/Users/ricki/source/repos/RoguelikeNew2/Content/Portal.png","C:/Users/ricki/source/repos/RoguelikeNew2/Content/bin/Windows/Portal.xnb","TextureProcessor","Texture2DContent",151474,800085,0,034499
-"C:/Users/ricki/source/repos/RoguelikeNew2/Content/ScienceLabBackDrop.png","C:/Users/ricki/source/repos/RoguelikeNew2/Content/bin/Windows/ScienceLabBackDrop.xnb","TextureProcessor","Texture2DContent",562195,8985685,0,2457223
-"C:/Users/ricki/source/repos/RoguelikeNew2/Content/weaponLeft.png","C:/Users/ricki/source/repos/RoguelikeNew2/Content/bin/Windows/weaponLeft.xnb","TextureProcessor","Texture2DContent",1735,19685,0,0159304
-"C:/Users/ricki/source/repos/RoguelikeNew2/Content/weaponRight.png","C:/Users/ricki/source/repos/RoguelikeNew2/Content/bin/Windows/weaponRight.xnb","TextureProcessor","Texture2DContent",1737,19685,0,0146235
+"C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/Ground.png","C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/bin/Windows/Ground.xnb","TextureProcessor","Texture2DContent",89764,675925,0,204239
