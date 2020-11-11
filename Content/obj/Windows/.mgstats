@@ -1,2 +1,2 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/Bruger/source/repos/RoguelikeNew/Content/DeathSound.wav","C:/Users/Bruger/source/repos/RoguelikeNew/Content/bin/Windows/DeathSound.xnb","SoundEffectProcessor","SoundEffectContent",148434,148461,0,2990369
+"C:/Users/Bruger/source/repos/RoguelikeNew/Content/platFormDummyBigSize.png","C:/Users/Bruger/source/repos/RoguelikeNew/Content/bin/Windows/platFormDummyBigSize.xnb","TextureProcessor","Texture2DContent",40101,150085,0,1699364

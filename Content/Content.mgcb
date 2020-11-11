@@ -188,6 +188,18 @@
 /processorParam:TextureFormat=Color
 /build:MonsterIcon.png
 
+#begin Music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music.mp3
+
+#begin Pain.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Pain.wav
+
 #begin platFormDummyBigSize.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -223,6 +235,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:platFormDummyNormalSize.png
+
+#begin PlayerSlash.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:PlayerSlash.wav
 
 #begin Portal.png
 /importer:TextureImporter

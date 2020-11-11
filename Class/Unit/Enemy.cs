@@ -28,6 +28,8 @@ namespace Roguelike.Class
         private float rotation;
         private SpriteEffects effects = new SpriteEffects();
         private SpriteEffects s = SpriteEffects.FlipHorizontally;
+
+       
         
         public Color myColor = Color.White;
         private float layerDepth;
@@ -57,6 +59,7 @@ namespace Roguelike.Class
         public bool isMovingRight;
         public bool isMovingLeft;
         public bool isTestKeyDown = false;
+        public bool playedSound;
 
 
         //GetHit
@@ -71,7 +74,7 @@ namespace Roguelike.Class
         public float deltaTime;
 
         public float behaviorTime = 4;
-        public float deathTime = 4;
+        public float deathTime = 0.8f;
         private float moveTime = 3;
         private float maxMoveTime = 3;
 
@@ -105,7 +108,7 @@ namespace Roguelike.Class
             Type = UnitType.AnEnemy;
 //            enemyDirection = direction;
 
-
+            //Make the enemy move in the direction it's turning;
             if (direction == 0)
             {
                 isMovingLeft = true;
@@ -174,6 +177,7 @@ namespace Roguelike.Class
             if (isEnemyDead == true)
             {
                 EnemyDeath();
+                deathTime -= deltaTime;
 
             }
 
@@ -195,6 +199,11 @@ namespace Roguelike.Class
                 GameManager.RemoveObject(this);
             }
 
+
+            if(deathTime <= 0)
+            {
+                GameManager.RemoveObject(this);
+            }
 
             #region Debug
 
@@ -378,7 +387,12 @@ namespace Roguelike.Class
         /// </summary>
         public void EnemyDeath()
         {
-            deathSound.Play();
+            if(playedSound == false)
+            {
+                deathSound.Play();
+                playedSound = true;
+            }
+            
             isMoving = false;
            base.color = Color.Red;
             base.Alpha -= 0.02f;
@@ -399,7 +413,9 @@ namespace Roguelike.Class
         {
             if (gameObject is MeleeWeapon)
             {
-                EnemyDeath();
+                isEnemyDead = true;
+                
+                
                 GameManager.monstersLeft--;
 
                 if(GameManager.monstersLeft <= 0)
@@ -411,23 +427,28 @@ namespace Roguelike.Class
                 if (gameObject is Player)
             {
 
-                gameObject.TakeHit();
-                GameManager.UpdateHealthUi(gameObject.health);
-                gameObject.health--;
+                if(isEnemyDead == false)
+                {
+                    gameObject.TakeHit();
+                    gameObject.PlaySound();
+                    GameManager.UpdateHealthUi(gameObject.health);
+                    gameObject.health--;
+
+                }
 
 
             }
 
-                if (gameObject is Environment)
+            if (gameObject is Environment)
             {
 
 
                if(position.X + sprite.Width > gameObject.position.X + gameObject.sprite.Width)
-                {
+               {
                     isMovingLeft = true;
                     isMovingRight = false;
 
-                }
+               }
 
                 if (position.X < gameObject.position.X )
                 {

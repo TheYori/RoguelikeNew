@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using Roguelike.Class;
 using Roguelike.Class.UI;
 using Roguelike.Class.World;
@@ -30,6 +31,8 @@ namespace Roguelike
         private Counter monsterUI;
 
         public static int monstersLeft;
+
+      
 
         public static LevelGenerator lg;
 
@@ -110,6 +113,8 @@ namespace Roguelike
             collisionTexture = Content.Load<Texture2D>("CollisionTexture");
 
             // TODO: use this.Content to load your game content here
+
+           
 
             base.LoadContent();
         }

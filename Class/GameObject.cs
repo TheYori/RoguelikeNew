@@ -113,7 +113,10 @@ namespace Roguelike.Class
             position = new Vector2(position.X-200, position.Y);
         }
 
-     
+        public virtual void PlaySound()
+        {
+
+        }
         
 
 

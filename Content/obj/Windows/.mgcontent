@@ -20,15 +20,21 @@
     <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Ground.png</File>
     <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Hearth.png</File>
     <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/MonsterIcon.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Music.mp3</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Pain.wav</File>
     <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/platFormDummyBigSize.png</File>
     <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/platFormDummyLargSize.png</File>
     <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/platFormDummyNormalSize.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/PlayerSlash.wav</File>
     <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Portal.png</File>
     <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/ScienceLabBackDrop.png</File>
     <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/weaponLeft.png</File>
     <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/weaponRight.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
