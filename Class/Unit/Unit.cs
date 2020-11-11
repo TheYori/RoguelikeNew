@@ -14,6 +14,8 @@ namespace Roguelike.Class
     public class Unit : GameObject
     {
 
+
+
         protected int health;
 
         protected UnitType Type = UnitType.None;
