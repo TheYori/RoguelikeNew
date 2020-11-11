@@ -28,6 +28,7 @@ namespace Roguelike
         private static List<GameObject> addObject;
         private List<Heart> hearts;
         private Counter monsterUI;
+      
 
 
 
@@ -39,7 +40,6 @@ namespace Roguelike
         public static Vector2 GetScreenSize { get => screenSize; }
         public static ContentManager content;
         public MeleeWeapon weapon;
-
         Dungeon currentDungeon;
 
        public static int levelProgression;
@@ -65,8 +65,7 @@ namespace Roguelike
             removeList = new List<GameObject>();
             gameObjects = new List<GameObject>();
             environmentList = new List<GameObject>();
-            weapon = new MeleeWeapon(new Vector2(0,0));
-
+            weapon = new MeleeWeapon(new Vector2(0, 0));
             // TODO: Add your initialization logic here
             Player player = new Player(weapon);
             hearts = new List<Heart>(3) {
