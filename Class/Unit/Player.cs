@@ -161,7 +161,7 @@ namespace Roguelike
             if (keyState.IsKeyDown(Keys.Space) && spaceHeldDown == true)
             {
                 weapon.position.X = position.X + sprite.Width / 2;
-                weapon.position.Y = position.Y + sprite.Height / -2;
+                weapon.position.Y = position.Y + sprite.Height / -2; //OI!
                 GameManager.AddObject(weapon);
                 spaceHeldDown = false;
             }
