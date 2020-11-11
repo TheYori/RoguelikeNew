@@ -28,6 +28,7 @@ namespace Roguelike
         private Vector2 spawnOffset;
         private bool spaceHeldDown;
         private GameObject weapon;
+        
 
         private BoostItem[] boostList;
 
@@ -125,6 +126,7 @@ namespace Roguelike
             {
                 //move left
                 velocity += new Vector2(-1, 0);
+                
             }
 
             //if we press D
@@ -161,7 +163,7 @@ namespace Roguelike
             if (keyState.IsKeyDown(Keys.Space) && spaceHeldDown == true)
             {
                 weapon.position.X = position.X + sprite.Width / 2;
-                weapon.position.Y = position.Y + sprite.Height / -2; //OI!
+                weapon.position.Y = position.Y + sprite.Height / -1.2f;
                 GameManager.AddObject(weapon);
                 spaceHeldDown = false;
             }

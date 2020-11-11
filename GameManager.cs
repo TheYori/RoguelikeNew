@@ -76,7 +76,7 @@ namespace Roguelike
             monsterUI = new Counter(new Vector2(300, 300), 0.3f, 0f);
             currentDungeon = new Dungeon(Theme.science, new Level((int)screenSize.X, (int)screenSize.Y, environmentList));
 
-            //gameObjects.Add(currentDungeon);
+           
             gameObjects.Add(weapon);
             gameObjects.Add(currentDungeon);
             gameObjects.Add(player);

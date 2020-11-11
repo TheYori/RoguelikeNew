@@ -13,6 +13,7 @@ namespace Roguelike.Class
         protected Vector2 origin;
         protected Color color;
         public Vector2 position;
+        
 
 
         protected Texture2D[] sprites;
