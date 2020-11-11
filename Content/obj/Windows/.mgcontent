@@ -7,6 +7,7 @@
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/1player_walk_Placeholder.png</File>
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/2player_walk_Placeholder.png</File>
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/CollisionTexture.png</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/Ground.png</File>
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/platFormDummyBigSize.png</File>
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/platFormDummyLargSize.png</File>
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/platFormDummyNormalSize.png</File>
@@ -16,6 +17,7 @@
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/weaponRight.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

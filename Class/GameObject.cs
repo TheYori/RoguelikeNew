@@ -83,15 +83,5 @@ namespace Roguelike.Class
                 currentIndex = 0;
             }
         } 
-
-        protected void Move(GameTime gameTime)
-        {
-            //Calculates deltaTime based on...
-            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            //Moves the object based on the result from HandleInput, speed and deltatime
-            position += ((velocity * speed) * deltaTime);
-        } 
     }
-
 }

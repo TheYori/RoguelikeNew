@@ -20,18 +20,19 @@ namespace Roguelike.Class
 
             if (levelProgression == 1)
             {
- 
-                levelList.Add(new SmallPlatform(new Vector2(400, 600)));
-                levelList.Add(new SmallPlatform(new Vector2(800, 500)));
-                levelList.Add(new Platform(new Vector2(100, 300)));
-                levelList.Add(new LargePlatform(new Vector2(800, 200)));
+                levelList.Add(new Floor(new Vector2(0, 992)));
+                //levelList.Add(new SmallPlatform(new Vector2(400, 600)));
+                //levelList.Add(new SmallPlatform(new Vector2(800, 500)));
+                levelList.Add(new Platform(new Vector2(100, 600)));
+                //levelList.Add(new LargePlatform(new Vector2(800, 200)));
+
                 levelList.Add(new Portal(new Vector2(1400, 500)));
 
             }
 
             if (levelProgression == 2) 
             {
-
+                levelList.Add(new Floor(new Vector2(0, 992)));
                 levelList.Add(new Platform(new Vector2(400, 250)));
                 levelList.Add(new Platform(new Vector2(800, 300)));
                 levelList.Add(new Platform(new Vector2(800, 500)));
@@ -40,7 +41,7 @@ namespace Roguelike.Class
 
             if (levelProgression == 3)
             {
-
+                levelList.Add(new Floor(new Vector2(0, 992)));
                 levelList.Add(new Platform(new Vector2(400, 200)));
                 levelList.Add(new Platform(new Vector2(800, 100)));
                 levelList.Add(new Platform(new Vector2(200, 500)));

@@ -49,7 +49,7 @@ namespace Roguelike
         protected override void Initialize()
         {
             levelProgression = 1;
-            screenSize = new Vector2(2080, 1080);
+            screenSize = new Vector2(1920, 1080);
             _graphics.PreferredBackBufferWidth = (int)screenSize.X;
             _graphics.PreferredBackBufferHeight = (int)screenSize.Y;
             _graphics.ApplyChanges();
