@@ -105,6 +105,12 @@ namespace Roguelike.Class
                 timeElapsed = 0;
                 currentIndex = 0;
             }
-        } 
+        }
+
+        public void TakeHit()
+        {
+            velocity = new Vector2(0, 0);
+            position = new Vector2(position.X-200, position.Y);
+        }
     }
 }
