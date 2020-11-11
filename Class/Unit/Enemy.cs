@@ -26,8 +26,6 @@ namespace Roguelike.Class
         private float scale = 0.5f;
         private Vector2 origin = Vector2.Zero;
         private float rotation;
-        private SpriteEffects effects = new SpriteEffects();
-        private SpriteEffects s = SpriteEffects.FlipHorizontally;
         
         public Color myColor = Color.White;
         private float layerDepth;
@@ -80,7 +78,6 @@ namespace Roguelike.Class
         public float timeElapsed;
         public bool isEnemyDead;
         public Vector2 testPosition = new Vector2(500f, 0f);
-        public Vector2 offset;
 
         // - 
 
@@ -303,7 +300,6 @@ namespace Roguelike.Class
 
         }
 
-       
         public override void LoadContent(ContentManager Content)
         {
 
@@ -325,9 +321,6 @@ namespace Roguelike.Class
 
 
         }
-
-
-
 
         public void Hit()
         {
@@ -355,7 +348,6 @@ namespace Roguelike.Class
             base.position.X -= speed * deltaTime;
             base.effects = SpriteEffects.None;
         }
-
 
         /// <summary>
         /// Animate enemy Sprite
@@ -440,7 +432,5 @@ namespace Roguelike.Class
 
             }
         }
-
-
     }
 }

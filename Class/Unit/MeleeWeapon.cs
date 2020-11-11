@@ -11,6 +11,8 @@ namespace Roguelike
     public class MeleeWeapon : GameObject
     {
         private bool isWeaponRight;
+
+
         public MeleeWeapon(Vector2 position)
         {
             this.position = position;
@@ -18,8 +20,6 @@ namespace Roguelike
             origin = Vector2.Zero;
 
         }
-
-
 
         public override void Initialize()
         {
@@ -31,6 +31,7 @@ namespace Roguelike
             //Loads melee weapon
             sprite = content.Load<Texture2D>("weaponRight");
         }
+
         public override void Update(GameTime gameTime)
         {
             KeyboardState keyState = Keyboard.GetState();

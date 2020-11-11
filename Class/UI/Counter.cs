@@ -10,6 +10,7 @@ namespace Roguelike.Class.UI
     class Counter : UIManager
     {
         private bool rotating = true;
+
         public Counter(Vector2 Position, float scale, float rotation) : base(Position)
         {
             _scale = scale;
