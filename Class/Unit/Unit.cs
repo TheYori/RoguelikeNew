@@ -15,7 +15,11 @@ namespace Roguelike.Class
         public int DealDamage(int a)
         {
             return health -= a;
+            
         }
+
+   
+
 
         protected void Move(GameTime gameTime)
         {
