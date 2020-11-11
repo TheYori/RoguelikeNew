@@ -7,6 +7,10 @@ using System.Text;
 
 namespace Roguelike.Class
 {
+   public enum UnitType
+    {
+        AnEnemy, APlayer, None
+    }
     public class Unit : GameObject
     {
 
@@ -14,6 +18,7 @@ namespace Roguelike.Class
 
         protected int health;
 
+        protected UnitType Type = UnitType.None;
         public int DealDamage(int a)
         {
             return health -= a;
@@ -27,12 +32,18 @@ namespace Roguelike.Class
         {
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (velocity.Length() != 0)
+            
+            if( Type == UnitType.APlayer)
             {
+                if (velocity.Length() != 0)
+                {
 
-                position += ((velocity * speed) * deltaTime);
+                    position += ((velocity * speed) * deltaTime);
+
+                }
 
             }
+
         }
 
         public override void LoadContent(ContentManager content)

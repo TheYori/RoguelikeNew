@@ -41,6 +41,8 @@ namespace Roguelike
             color = Color.White; //Racist Motherf*cker!
             fps = 6;
             speed = 500f;
+
+            Type = UnitType.APlayer;
         }
 
         public override void Update(GameTime gameTime)

@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using SharpDX.Direct3D9;
 using System.Diagnostics;
 using System.Linq;
-using System.Windows.Forms.Design.Behavior;
+
 
 namespace Roguelike.Class
 {
@@ -19,6 +19,7 @@ namespace Roguelike.Class
         private Texture2D enemyTexture;
         private Texture2D[] myfishy = new Texture2D[6];
         private Rectangle enemyRectangle;
+        private Vector2 _position;
         private float scale = 0.5f;
         private Vector2 origin = Vector2.Zero;
         private float rotation;
@@ -27,7 +28,22 @@ namespace Roguelike.Class
         private float alpha = 1f;
         public Color myColor = Color.White;
         private float layerDepth;
-        
+        public Rectangle EnemyRectangle
+        {
+            get
+            {
+                return new Rectangle(
+                       (int)(_position.X + offset.X),
+                       (int)(_position.Y + offset.Y),
+                       enemyTexture.Width,
+                       enemyTexture.Height
+                   );
+            }
+            set
+            {
+                enemyRectangle = value;
+            }
+        }
 
         public float Alpha
         {
@@ -77,9 +93,9 @@ namespace Roguelike.Class
         public float fps = 15;
         public float timeElapsed;
         public bool isEnemyDead;
+        public Vector2 testPosition = new Vector2(500f, 0f);
         public Vector2 offset;
 
-        public int direction = 1;
         // - 
 
         private float speed = 150;
@@ -91,14 +107,14 @@ namespace Roguelike.Class
         private int enemyDirection;
 
 
-        public Enemy(Vector2 Position) 
+        public Enemy(Vector2 position, int direction, int health)
         {
 
-          
-            color = Color.White;
+            color = Color.White * Alpha;
 
-            base.position = Position;
-
+            _position = position;
+            Type = UnitType.AnEnemy;
+            
             if (direction == 0)
             {
                 isMovingLeft = true;
@@ -173,7 +189,7 @@ namespace Roguelike.Class
 
             if (isMoving == true)
             {
-                Animate(gameTime);
+                AnimateE(gameTime);
             }
 
             if (isEnemyDead == true)
@@ -315,7 +331,7 @@ namespace Roguelike.Class
         public void MoveRight()
         {
             isMoving = true;
-            position.X += speed * deltaTime;
+            _position.X += speed * deltaTime;
             effects = SpriteEffects.FlipHorizontally;
         }
 
@@ -325,7 +341,7 @@ namespace Roguelike.Class
         public void MoveLeft()
         {
             isMoving = true;
-            position.X -= speed * deltaTime;
+            _position.X -= speed * deltaTime;
             effects = SpriteEffects.None;
         }
 
@@ -333,7 +349,7 @@ namespace Roguelike.Class
         /// <summary>
         /// Animate enemy Sprite
         /// </summary>
-        protected override void Animate(GameTime gameTime)
+        protected void AnimateE(GameTime gameTime)
         {
             timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
             fishProgress = (int)(timeElapsed * fps);
