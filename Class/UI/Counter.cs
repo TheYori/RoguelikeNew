@@ -15,7 +15,7 @@ namespace Roguelike.Class.UI
             _scale = scale;
             color = Color.White;
             origin = new Vector2(256, 256);
-            base._rotation = rotation;
+            _rotation = rotation;
         }
 
         public override void Update(GameTime gameTime)
@@ -40,7 +40,7 @@ namespace Roguelike.Class.UI
                     rotating = true;
                 }
             }
-        } 
+        }
 
         public override void LoadContent(ContentManager content)
         {

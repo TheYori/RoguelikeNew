@@ -13,7 +13,7 @@ namespace Roguelike.Class.UI
         protected float layerDepth;
         protected Vector2 _origin = Vector2.Zero;
         protected SpriteEffects effect = new SpriteEffects();
-        protected float _rotation;
+
 
         public UIManager(Vector2 Position)
         {
