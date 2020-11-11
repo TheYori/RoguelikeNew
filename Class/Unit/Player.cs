@@ -216,7 +216,14 @@ namespace Roguelike
             this.offset = new Vector2(sprite.Width / -2, sprite.Height * -1); //Centers the Collison box
             if (gameObject is Environment)
             {
-                jumpAllowed = true;
+                // Get the current keyboard state
+                KeyboardState keyState = Keyboard.GetState();
+
+                if (gameObject.position.Y - gameObject.sprite.Height > position.Y - sprite.Height && !keyState.IsKeyDown(Keys.W))
+                {
+                    jumpAllowed = true;
+                }
+               
             }
         }
     }
