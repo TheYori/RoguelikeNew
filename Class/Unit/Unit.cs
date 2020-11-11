@@ -12,6 +12,7 @@ namespace Roguelike.Class
     {
         AnEnemy, APlayer, None
     }
+
     public class Unit : GameObject
     {
         protected UnitType Type = UnitType.None;

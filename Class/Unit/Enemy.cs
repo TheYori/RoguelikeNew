@@ -26,10 +26,6 @@ namespace Roguelike.Class
         private float scale = 0.5f;
         private Vector2 origin = Vector2.Zero;
         private float rotation;
-        private SpriteEffects effects = new SpriteEffects();
-        private SpriteEffects s = SpriteEffects.FlipHorizontally;
-
-       
         
         public Color myColor = Color.White;
         private float layerDepth;
@@ -59,7 +55,6 @@ namespace Roguelike.Class
         public bool isMovingRight;
         public bool isMovingLeft;
         public bool isTestKeyDown = false;
-        public bool playedSound;
 
 
         //GetHit
@@ -74,7 +69,7 @@ namespace Roguelike.Class
         public float deltaTime;
 
         public float behaviorTime = 4;
-        public float deathTime = 0.8f;
+        public float deathTime = 4;
         private float moveTime = 3;
         private float maxMoveTime = 3;
 
@@ -83,7 +78,6 @@ namespace Roguelike.Class
         public float timeElapsed;
         public bool isEnemyDead;
         public Vector2 testPosition = new Vector2(500f, 0f);
-        public Vector2 offset;
 
         // - 
 
@@ -108,7 +102,7 @@ namespace Roguelike.Class
             Type = UnitType.AnEnemy;
 //            enemyDirection = direction;
 
-            //Make the enemy move in the direction it's turning;
+
             if (direction == 0)
             {
                 isMovingLeft = true;
@@ -177,7 +171,6 @@ namespace Roguelike.Class
             if (isEnemyDead == true)
             {
                 EnemyDeath();
-                deathTime -= deltaTime;
 
             }
 
@@ -199,11 +192,6 @@ namespace Roguelike.Class
                 GameManager.RemoveObject(this);
             }
 
-
-            if(deathTime <= 0)
-            {
-                GameManager.RemoveObject(this);
-            }
 
             #region Debug
 
@@ -312,7 +300,6 @@ namespace Roguelike.Class
 
         }
 
-       
         public override void LoadContent(ContentManager Content)
         {
 
@@ -334,9 +321,6 @@ namespace Roguelike.Class
 
 
         }
-
-
-
 
         public void Hit()
         {
@@ -365,7 +349,6 @@ namespace Roguelike.Class
             base.effects = SpriteEffects.None;
         }
 
-
         /// <summary>
         /// Animate enemy Sprite
         /// </summary>
@@ -387,12 +370,7 @@ namespace Roguelike.Class
         /// </summary>
         public void EnemyDeath()
         {
-            if(playedSound == false)
-            {
-                deathSound.Play();
-                playedSound = true;
-            }
-            
+            deathSound.Play();
             isMoving = false;
            base.color = Color.Red;
             base.Alpha -= 0.02f;
@@ -413,9 +391,7 @@ namespace Roguelike.Class
         {
             if (gameObject is MeleeWeapon)
             {
-                isEnemyDead = true;
-                
-                
+                EnemyDeath();
                 GameManager.monstersLeft--;
 
                 if(GameManager.monstersLeft <= 0)
@@ -427,28 +403,23 @@ namespace Roguelike.Class
                 if (gameObject is Player)
             {
 
-                if(isEnemyDead == false)
-                {
-                    gameObject.TakeHit();
-                    gameObject.PlaySound();
-                    GameManager.UpdateHealthUi(gameObject.health);
-                    gameObject.health--;
-
-                }
+                gameObject.TakeHit();
+                GameManager.UpdateHealthUi(gameObject.health);
+                gameObject.health--;
 
 
             }
 
-            if (gameObject is Environment)
+                if (gameObject is Environment)
             {
 
 
                if(position.X + sprite.Width > gameObject.position.X + gameObject.sprite.Width)
-               {
+                {
                     isMovingLeft = true;
                     isMovingRight = false;
 
-               }
+                }
 
                 if (position.X < gameObject.position.X )
                 {
@@ -461,7 +432,5 @@ namespace Roguelike.Class
 
             }
         }
-
-
     }
 }

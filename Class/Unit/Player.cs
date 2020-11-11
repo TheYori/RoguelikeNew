@@ -233,8 +233,6 @@ namespace Roguelike
 
         }
 
-   
-
         public override void LoadContent(ContentManager content)
         {
             // Spawns weapon away from player
