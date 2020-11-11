@@ -98,7 +98,7 @@ namespace Roguelike.Class
 
         // - 
 
-        private float speed = 150;
+        private float speed = 2000;
 
 
         private int ID;
@@ -114,7 +114,9 @@ namespace Roguelike.Class
 
             _position = position;
             Type = UnitType.AnEnemy;
-            
+//            enemyDirection = direction;
+
+
             if (direction == 0)
             {
                 isMovingLeft = true;
