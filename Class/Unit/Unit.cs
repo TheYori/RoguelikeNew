@@ -14,20 +14,13 @@ namespace Roguelike.Class
     }
     public class Unit : GameObject
     {
-
-
-
-
-
         protected UnitType Type = UnitType.None;
+
         public int DealDamage(int a)
         {
             return health -= a;
             
         }
-
-
-
 
         protected void Move(GameTime gameTime)
         {
