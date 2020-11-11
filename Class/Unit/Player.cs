@@ -154,6 +154,7 @@ namespace Roguelike
 
             if (keyState.IsKeyDown(Keys.Space))
             {
+
                 GameManager.AddObject(new MeleeWeapon(meleeSprite, new Vector2(position.X + spawnOffset.X, position.Y + spawnOffset.Y)));
             }
         }
