@@ -27,6 +27,7 @@ namespace Roguelike.Class
         protected SpriteEffects s = SpriteEffects.FlipHorizontally;
         protected float alpha = 1f;
         protected float _rotation = 0f;
+        public int health;
 
         protected float Alpha
         {

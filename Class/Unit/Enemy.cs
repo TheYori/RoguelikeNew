@@ -373,7 +373,14 @@ namespace Roguelike.Class
         public override void OnCollision(GameObject gameObject)
         {
 
-            if (gameObject is Environment)
+            if (gameObject is Player)
+            {
+                gameObject.health--;
+                
+
+            }
+
+                if (gameObject is Environment)
             {
 
 
