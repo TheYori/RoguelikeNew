@@ -39,7 +39,7 @@ namespace Roguelike
 
         public Player(MeleeWeapon myweapon)
         {
-            color = Color.White; //Racist Motherf*cker!
+            color = Color.White; 
             fps = 6;
             speed = 500f;
             Type = UnitType.APlayer;
@@ -61,6 +61,8 @@ namespace Roguelike
             //Other
             ScreenWarp();
             ScreenLimits();
+
+            
         }
 
         private void ScreenWarp()
@@ -154,11 +156,12 @@ namespace Roguelike
         private void Attack()
         {
             
-
             KeyboardState keyState = Keyboard.GetState();
 
             if (keyState.IsKeyDown(Keys.Space) && spaceHeldDown == true)
             {
+                weapon.position.X = position.X + sprite.Width / 2;
+                weapon.position.Y = position.Y + sprite.Height / -2; //OI!
                 GameManager.AddObject(weapon);
                 spaceHeldDown = false;
             }
@@ -203,8 +206,8 @@ namespace Roguelike
         {
             // Spawns weapon away from player
             spawnOffset = new Vector2(50, -105);
+            sprite = content.Load<Texture2D>("weaponRight");
 
-      
             //Instantiates the sprite array
             sprites = new Texture2D[2];
 
