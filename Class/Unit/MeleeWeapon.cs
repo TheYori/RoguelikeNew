@@ -10,12 +10,14 @@ namespace Roguelike
 {
     class MeleeWeapon : GameObject
     {
+        private Vector2 changePosition;
 
-        public MeleeWeapon(Texture2D sprite, Vector2 position)
+        public MeleeWeapon(Vector2 position)
         {
-            this.sprite = sprite;
             this.position = position;
-            
+            color = Color.White;
+            origin = Vector2.Zero;
+
         }
 
         public override void Initialize()
@@ -25,6 +27,9 @@ namespace Roguelike
 
         public override void LoadContent(ContentManager content)
         {
+            //Loads melee weapon
+            sprite = content.Load<Texture2D>("weaponRight");
+            
 
 
         }
