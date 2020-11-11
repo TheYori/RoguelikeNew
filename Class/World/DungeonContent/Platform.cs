@@ -32,13 +32,13 @@ namespace Roguelike.Class
 
         public override void OnCollision(GameObject gameObject)
         {
-            if(gameObject is Unit)
+            if(gameObject is Player)
             {
           
 
                 if (position.Y - sprite.Height > gameObject.position.Y - gameObject.sprite.Height && gameObject.velocity.Y > 0f)
                 {
-                    color = Color.Black;
+           
 
                   
                     gameObject.velocity = new Vector2(gameObject.velocity.X, 0f);
