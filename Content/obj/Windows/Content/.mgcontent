@@ -4,14 +4,14 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/1player_walk_Placeholder.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/2player_walk_Placeholder.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/CollisionTexture.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/platFormDummyNormalSize.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/Portal.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/ScienceLabBackDrop.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/weaponLeft.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/weaponRight.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/1player_walk_Placeholder.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/2player_walk_Placeholder.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/CollisionTexture.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/platFormDummyNormalSize.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Portal.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/ScienceLabBackDrop.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/weaponLeft.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/weaponRight.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

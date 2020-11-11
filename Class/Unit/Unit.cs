@@ -10,6 +10,13 @@ namespace Roguelike.Class
     public class Unit : GameObject
     {
 
+        protected int health;
+
+        public int DealDamage(int a)
+        {
+            return health -= a;
+        }
+
         protected void Move(GameTime gameTime)
         {
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
