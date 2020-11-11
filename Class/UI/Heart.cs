@@ -10,6 +10,7 @@ namespace Roguelike.Class.UI
     class Heart : UIManager
     {
         private bool scaling = true;
+
         public Heart(Vector2 Position, float scale) : base(Position)
         {
             _scale = scale;
@@ -39,6 +40,11 @@ namespace Roguelike.Class.UI
                     scaling = true;
                 }
             }
+        }
+
+        public void RemoveHeart()
+        {
+            GameManager.RemoveObject(this);
         }
 
         public override void LoadContent(ContentManager content)

@@ -25,7 +25,6 @@ namespace Roguelike
         private bool rangeAttack;
 
         //Fields for melee attack
-        private Texture2D meleeSprite;
         private Vector2 spawnOffset;
         private bool spaceHeldDown;
         private GameObject weapon;
@@ -38,12 +37,14 @@ namespace Roguelike
 
         //bool dashHeldDown;
 
-        public Player()
+        public Player(MeleeWeapon myweapon)
         {
-            color = Color.White; //Racist Motherf*cker!
+            color = Color.White; 
             fps = 6;
             speed = 500f;
             Type = UnitType.APlayer;
+            weapon = myweapon;
+            health = 3;
         }
 
         public override void Update(GameTime gameTime)
@@ -61,6 +62,8 @@ namespace Roguelike
             //Other
             ScreenWarp();
             ScreenLimits();
+
+            
         }
 
         private void ScreenWarp()
@@ -153,12 +156,13 @@ namespace Roguelike
 
         private void Attack()
         {
-            weapon = new MeleeWeapon(meleeSprite, new Vector2(position.X + spawnOffset.X, position.Y + spawnOffset.Y));
-
+            
             KeyboardState keyState = Keyboard.GetState();
 
             if (keyState.IsKeyDown(Keys.Space) && spaceHeldDown == true)
             {
+                weapon.position.X = position.X + sprite.Width / 2;
+                weapon.position.Y = position.Y + sprite.Height / -2; //OI!
                 GameManager.AddObject(weapon);
                 spaceHeldDown = false;
             }
@@ -167,6 +171,11 @@ namespace Roguelike
                 GameManager.RemoveObject(weapon);
                 spaceHeldDown = true;
             }
+        }
+
+        public override void Initialize()
+        {
+ 
         }
 
         private void Collect()
@@ -198,9 +207,7 @@ namespace Roguelike
         {
             // Spawns weapon away from player
             spawnOffset = new Vector2(50, -105);
-
-            //Loads melee weapon
-            meleeSprite = content.Load<Texture2D>("weaponRight");
+            sprite = content.Load<Texture2D>("weaponRight");
 
             //Instantiates the sprite array
             sprites = new Texture2D[2];

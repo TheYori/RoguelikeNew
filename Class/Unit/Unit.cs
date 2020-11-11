@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -17,7 +16,8 @@ namespace Roguelike.Class
     {
 
 
-        protected int health;
+
+
 
         protected UnitType Type = UnitType.None;
         public int DealDamage(int a)
@@ -26,7 +26,7 @@ namespace Roguelike.Class
             
         }
 
-   
+
 
 
         protected void Move(GameTime gameTime)
