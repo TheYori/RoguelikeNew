@@ -126,6 +126,7 @@ namespace Roguelike
             {
                 //move left
                 velocity += new Vector2(-1, 0);
+                base.effects = s;
             }
 
             //if we press D
@@ -133,6 +134,7 @@ namespace Roguelike
             {
                 //move right
                 velocity += new Vector2(1, 0);
+                base.effects = SpriteEffects.None;
             }
         }  //Left, Right, Jump
 
