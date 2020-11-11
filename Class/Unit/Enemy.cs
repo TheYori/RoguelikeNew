@@ -9,6 +9,8 @@ using SharpDX.Direct3D9;
 using System.Diagnostics;
 using System.Linq;
 using Microsoft.Xna.Framework.Audio;
+using Roguelike.Class.World.DungeonContent;
+using System.Drawing.Text;
 
 namespace Roguelike.Class
 {
@@ -398,6 +400,12 @@ namespace Roguelike.Class
             if (gameObject is MeleeWeapon)
             {
                 GameManager.RemoveObject(this);
+                GameManager.monstersLeft--;
+
+                if(GameManager.monstersLeft <= 0)
+                {
+                    GameManager.SpawnPortal();
+                }
             }
 
                 if (gameObject is Player)

@@ -7,10 +7,8 @@ using System.Text;
 
 namespace Roguelike.Class.World.DungeonContent
 {
-    class Portal : Environment
+    public class Portal : Environment
     {
-
-        bool portalActive = true;
 
         public Portal(Vector2 Position) : base(Position) {
             color = Color.White;
@@ -34,18 +32,21 @@ namespace Roguelike.Class.World.DungeonContent
         public override void OnCollision(GameObject gameObject)
         {
 
-            if (gameObject is Player && portalActive)
+            if (gameObject is Player )
             {
 
-                levelProgression++;
-                portalActive = false;
+                GameManager.levelProgression++;
                 GameManager.RemoveObject(this);
-                GameManager.ChangeLevel(levelProgression);
+                GameManager.ChangeLevel(GameManager.levelProgression);
             }
 
 
 
         }
+
+
+
+
 
     }
 }

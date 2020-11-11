@@ -9,6 +9,8 @@
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/charecterDesign2.png</File>
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/CollisionTexture.png</File>
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/Counter.spritefont</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/DeathSound.wav</File>
+    <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/DeatSound.mp3</File>
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/EnemyF1.png</File>
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/EnemyF2.png</File>
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/EnemyF3.png</File>
@@ -27,6 +29,8 @@
     <File>C:/Users/smikk/Desktop/Skole/Noter/Programmering/3. monoGame/opgave/Afsluttende Opgave/RoguelikeNew/Content/weaponRight.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

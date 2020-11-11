@@ -48,7 +48,6 @@ namespace Roguelike.Class
             }
         }
 
-        public static int levelProgression;
 
         public abstract void Initialize();
         public abstract void LoadContent(ContentManager content);
@@ -112,5 +111,12 @@ namespace Roguelike.Class
             velocity = new Vector2(0, 0);
             position = new Vector2(position.X-200, position.Y);
         }
+
+     
+        
+
+
+
+        
     }
 }

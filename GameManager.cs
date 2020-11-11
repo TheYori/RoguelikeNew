@@ -22,14 +22,14 @@ namespace Roguelike
         protected Vector2 position;
         protected Rectangle collisionBox;
 
-        private List<GameObject> gameObjects;
+        private static List<GameObject> gameObjects;
         public static List<GameObject> environmentList;
         static List<GameObject> removeList;
         private static List<GameObject> addObject;
         private static List<Heart> hearts;
         private Counter monsterUI;
 
-
+        public static int monstersLeft;
 
         public static LevelGenerator lg;
 
@@ -41,7 +41,6 @@ namespace Roguelike
         public static ContentManager content;
         public MeleeWeapon weapon;
         Dungeon currentDungeon;
-
 
        public static int levelProgression;
 
@@ -82,7 +81,8 @@ namespace Roguelike
             gameObjects.Add(weapon);
             gameObjects.Add(currentDungeon);
             gameObjects.Add(player);
-   
+
+
 
             foreach (GameObject obj in hearts)
             {
@@ -200,6 +200,20 @@ namespace Roguelike
             }
 
         }
+
+        public static void SpawnPortal() { 
+        
+        foreach(GameObject obj in gameObjects)
+            {
+                if(obj is Portal)
+                {
+                    obj.position.X = 800;
+                }
+            }
+                
+                    }
+
+
 
         public static void AddObject(GameObject obj)
         {
