@@ -37,6 +37,18 @@
 /processorParam:TextureFormat=Color
 /build:2player_walk_Placeholder.png
 
+#begin charecterDesign2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:charecterDesign2.png
+
 #begin CollisionTexture.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -48,6 +60,13 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:CollisionTexture.png
+
+#begin Counter.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Counter.spritefont
 
 #begin EnemyF1.png
 /importer:TextureImporter
@@ -132,6 +151,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Ground.png
+
+#begin Hearth.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Hearth.png
+
+#begin MonsterIcon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MonsterIcon.png
 
 #begin platFormDummyBigSize.png
 /importer:TextureImporter

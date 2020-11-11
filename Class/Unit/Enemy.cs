@@ -25,7 +25,7 @@ namespace Roguelike.Class
         private float rotation;
         private SpriteEffects effects = new SpriteEffects();
         private SpriteEffects s = SpriteEffects.FlipHorizontally;
-        private float alpha = 1f;
+        
         public Color myColor = Color.White;
         private float layerDepth;
         public Rectangle EnemyRectangle
@@ -33,8 +33,8 @@ namespace Roguelike.Class
             get
             {
                 return new Rectangle(
-                       (int)(_position.X + offset.X),
-                       (int)(_position.Y + offset.Y),
+                       (int)(base.position.X + offset.X),
+                       (int)(base.position.Y + offset.Y),
                        enemyTexture.Width,
                        enemyTexture.Height
                    );
@@ -45,24 +45,7 @@ namespace Roguelike.Class
             }
         }
 
-        public float Alpha
-        {
-            get
-            {
-                return alpha;
-            }
-            set
-            {
-                if (value > 0)
-                {
-                    alpha = value;
-                }
-                else
-                {
-                    alpha = 0;
-                }
-            }
-        }
+  
         // - Misc bools -//
         public bool gameStart;
         public bool stateOne = true;
@@ -107,12 +90,19 @@ namespace Roguelike.Class
         private int enemyDirection;
 
 
+        //  public Enemy(Vector2 position, int direction, int health)
         public Enemy(Vector2 position, int direction, int health)
         {
+            base.alpha = 1f;
+            base.color = Color.White * base.Alpha;
+            //color = Color.White * Alpha;
 
-            color = Color.White;
+            base.position = position;
+            
+            Type = UnitType.AnEnemy;
+//            enemyDirection = direction;
 
-            _position = position;
+
             if (direction == 0)
             {
                 isMovingLeft = true;
@@ -122,7 +112,7 @@ namespace Roguelike.Class
                 isMovingRight = true;
             }
 
-            this.health = health;
+            base.health = health;
 
         }
 
@@ -132,11 +122,12 @@ namespace Roguelike.Class
 
             deltaTime = delta;
 
-  
+
 
             if (gameStart == false)
             {
                 effects = SpriteEffects.FlipHorizontally;
+                base.effects = base.s;
                 //int enemyDirection = rnd.Next(1, 2);
                 gameStart = true;
 
@@ -179,7 +170,7 @@ namespace Roguelike.Class
                 moveTime = maxMoveTime;
             }
 
-            if (health <= 0)
+            if (base.health <= 0)
             {
                 isEnemyDead = true;
             }
@@ -187,7 +178,7 @@ namespace Roguelike.Class
 
             if (isMoving == true)
             {
-                Animate(gameTime);
+                AnimateE(gameTime);
             }
 
             if (isEnemyDead == true)
@@ -198,14 +189,14 @@ namespace Roguelike.Class
 
             if (isHit == true)
             {
-                myColor = Color.Red;
+                base.color = Color.Red;
                 colorDuration -= deltaTime;
 
             }
             if (colorDuration < 0 && isHit == true)
             {
                 isHit = false;
-                myColor = Color.White;
+                base.color = Color.White;
                 colorDuration = 0.5f;
             }
 
@@ -285,8 +276,19 @@ namespace Roguelike.Class
 
             //}
 
+
+            //if (Keyboard.GetState().IsKeyDown(Keys.L))
+            //{
+            //    if (isTestKeyDown == false)
+            //    {
+
+            //        base.DealDamage(5);
+            //        isTestKeyDown = true;
+            //    }
+
             #endregion
 
+            //}
         }
 
         public override void Initialize()
@@ -329,8 +331,8 @@ namespace Roguelike.Class
         public void MoveRight()
         {
             isMoving = true;
-            _position.X += speed * deltaTime;
-            effects = SpriteEffects.FlipHorizontally;
+            base.position.X += speed * deltaTime;
+            base.effects = base.s;
         }
 
         /// <summary>
@@ -339,15 +341,15 @@ namespace Roguelike.Class
         public void MoveLeft()
         {
             isMoving = true;
-            _position.X -= speed * deltaTime;
-            effects = SpriteEffects.None;
+            base.position.X -= speed * deltaTime;
+            base.effects = SpriteEffects.None;
         }
 
 
         /// <summary>
         /// Animate enemy Sprite
         /// </summary>
-        protected override void Animate(GameTime gameTime)
+        protected void AnimateE(GameTime gameTime)
         {
             timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
             fishProgress = (int)(timeElapsed * fps);
@@ -366,8 +368,8 @@ namespace Roguelike.Class
         public void EnemyDeath()
         {
             isMoving = false;
-            myColor = Color.Red;
-            Alpha -= 0.02f;
+           base.color = Color.Red;
+            base.Alpha -= 0.02f;
 
         }
 
@@ -377,8 +379,8 @@ namespace Roguelike.Class
         public void Reveal()
         {
             isEnemyDead = false;
-            Alpha += 0.02f;
-            myColor = Color.White;
+            base.Alpha += 0.02f;
+            base.color = Color.White;
         }
 
 

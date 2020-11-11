@@ -17,11 +17,34 @@ namespace Roguelike.Class
 
         protected Texture2D[] sprites;
         protected float speed;
+        protected float _scale = 1f;
         public Vector2 velocity;
         protected Vector2 offset;
         protected float fps;
         private float timeElapsed;
         private int currentIndex;
+        protected SpriteEffects effects = new SpriteEffects();
+        protected SpriteEffects s = SpriteEffects.FlipHorizontally;
+        protected float alpha = 1f;
+
+        protected float Alpha
+        {
+            get
+            {
+                return alpha;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    alpha = value;
+                }
+                else
+                {
+                    alpha = 0;
+                }
+            }
+        }
 
         public static int levelProgression;
 
@@ -36,7 +59,7 @@ namespace Roguelike.Class
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, position, null , Color.White, 0, origin, 1f, SpriteEffects.None, 0);
+            spriteBatch.Draw(sprite, position, null , color*Alpha, 0, origin, _scale, effects, 0);
         } 
 
         //positions the collisionbox rectangle
