@@ -10,7 +10,7 @@ namespace Roguelike
 {
     public class MeleeWeapon : GameObject
     {
-
+        private bool isWeaponRight;
         public MeleeWeapon(Vector2 position)
         {
             this.position = position;
@@ -33,7 +33,25 @@ namespace Roguelike
         }
         public override void Update(GameTime gameTime)
         {
-            
+            KeyboardState keyState = Keyboard.GetState();
+
+
+            //if(KeyboardState.GetState().IsKeyDown(Keys.A))
+            //{
+
+            //}
+
+
+            if(isWeaponRight == false)
+            {
+                base.effects = SpriteEffects.None;
+            }
+         
+            if(isWeaponRight == true)
+            {
+                base.effects = s;
+            }
+
         }
 
         public override void OnCollision(GameObject other)
