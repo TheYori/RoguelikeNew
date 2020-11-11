@@ -32,7 +32,11 @@ namespace Roguelike
         private BoostItem[] boostList;
 
         // Fields for movements
-        bool keyHeldDown;
+        bool jumpHeldDown;
+        //bool dashHeldDown;
+
+        //float timer = 2; 
+        //const float TIMER = 2;
 
         public Player()
         {
@@ -50,7 +54,7 @@ namespace Roguelike
             HandleInput();
             ApplyPhysics(gameTime);
             Move(gameTime);
-            Dash();
+            Dash(gameTime);
             Attack();
 
             //Other
@@ -105,12 +109,12 @@ namespace Roguelike
             {
                 // Allows the player to go up, but 
                 //stops the player to continue to do so, bu holding the key.
-                if (!keyHeldDown)
+                if (!jumpHeldDown)
                     velocity = new Vector2(velocity.X, -2f);
-                    keyHeldDown = true;
+                    jumpHeldDown = true;
             }
             else
-                keyHeldDown = false;
+                jumpHeldDown = false;
 
             //if we press A
             if (keyState.IsKeyDown(Keys.A))
@@ -127,18 +131,25 @@ namespace Roguelike
             }
         }  //Left, Right, Jump
 
-        private void Dash()
+        private void Dash(GameTime gameTime)
         {
+            //float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            //timer -= elapsed;
+
             KeyboardState keyState = Keyboard.GetState();
 
             if (keyState.IsKeyDown(Keys.D) && keyState.IsKeyDown(Keys.LeftShift))
             {
-                position += new Vector2(50, 0);
+                //if (timer > 0)
+                //{
+                    position += new Vector2(50, 0);
+                //    timer = TIMER;   //Reset Timer
+                //}
             }
 
             if (keyState.IsKeyDown(Keys.A) && keyState.IsKeyDown(Keys.LeftShift))
             {
-                position += new Vector2(-50, 0);
+                    position += new Vector2(-50, 0);
             }
         }  //"Dash" is technically a movement, but since we need to [manipulate] it, "Dash" have its own method
 
@@ -150,7 +161,6 @@ namespace Roguelike
             {
                 GameManager.AddObject(new MeleeWeapon(meleeSprite, new Vector2(position.X + spawnOffset.X, position.Y + spawnOffset.Y)));
             }
-            
         }
 
         private void Collect()
