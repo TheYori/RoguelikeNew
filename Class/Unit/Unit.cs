@@ -15,7 +15,11 @@ namespace Roguelike.Class
         public int DealDamage(int a)
         {
             return health -= a;
+            
         }
+
+   
+
 
         protected void Move(GameTime gameTime)
         {
@@ -46,7 +50,7 @@ namespace Roguelike.Class
 
         public override void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+           
         }
     }
 }

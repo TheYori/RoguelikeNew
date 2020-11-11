@@ -15,7 +15,7 @@ namespace Roguelike.Class
     class Enemy : Unit
     {
 
-
+        // - Draw parameters -//
         private Texture2D enemyTexture;
         private Texture2D[] myfishy = new Texture2D[6];
         private Rectangle enemyRectangle;
@@ -27,41 +27,7 @@ namespace Roguelike.Class
         private SpriteEffects s = SpriteEffects.FlipHorizontally;
         private float alpha = 1f;
         public Color myColor = Color.White;
-
-        Random rnd = new Random();
-        private int enemyDirection;
-
-
-
-
-        public bool gameStart;
-        public bool stateOne = true;
-        public bool stateTwo;
-        public bool isMoving = true;
-        public bool isMovingRight;
-        public bool isMovingLeft;
-        public bool isTestKeyDown = false;
-
-        public float behaviorTime = 4;
-        public float deathTime = 4;
-        private float moveTime = 3;
-        private float maxMoveTime = 3;
-
         private float layerDepth;
-        public int fishProgress = 0;
-        public float fps = 15;
-        public float timeElapsed;
-        public bool isEnemyDead;
-        public Vector2 testPosition = new Vector2(500f, 0f);
-        public Vector2 offset;
-
-        private int ID;
-
-
-
-        public float deltaTime;
-
-        private float speed = 150;
         public Rectangle EnemyRectangle
         {
             get
@@ -79,11 +45,73 @@ namespace Roguelike.Class
             }
         }
 
+        public float Alpha
+        {
+            get
+            {
+                return alpha;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    alpha = value;
+                }
+                else
+                {
+                    alpha = 0;
+                }
+            }
+        }
+        // - Misc bools -//
+        public bool gameStart;
+        public bool stateOne = true;
+        public bool stateTwo;
+        public bool isMoving = true;
+        public bool isMovingRight;
+        public bool isMovingLeft;
+        public bool isTestKeyDown = false;
 
+
+        //GetHit
+
+        public int blinks = 1;
+        public bool isHit;
+        public float colorDuration = 0.5f;
+
+
+        // - Delta time, timers and max values -//
+
+        public float deltaTime;
+
+        public float behaviorTime = 4;
+        public float deathTime = 4;
+        private float moveTime = 3;
+        private float maxMoveTime = 3;
+
+        public int fishProgress = 0;
+        public float fps = 15;
+        public float timeElapsed;
+        public bool isEnemyDead;
+        public Vector2 testPosition = new Vector2(500f, 0f);
+        public Vector2 offset;
+
+        // - 
+
+        private float speed = 150;
+
+
+        private int ID;
+
+        Random rnd = new Random();
+        private int enemyDirection;
 
 
         public Enemy(Vector2 position, int direction, int health)
         {
+
+            color = Color.White;
+
             _position = position;
             if (direction == 0)
             {
@@ -98,12 +126,13 @@ namespace Roguelike.Class
 
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             var delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             deltaTime = delta;
 
+  
 
             if (gameStart == false)
             {
@@ -154,6 +183,34 @@ namespace Roguelike.Class
             {
                 isEnemyDead = true;
             }
+
+
+            if (isMoving == true)
+            {
+                Animate(gameTime);
+            }
+
+            if (isEnemyDead == true)
+            {
+                EnemyDeath();
+
+            }
+
+            if (isHit == true)
+            {
+                myColor = Color.Red;
+                colorDuration -= deltaTime;
+
+            }
+            if (colorDuration < 0 && isHit == true)
+            {
+                isHit = false;
+                myColor = Color.White;
+                colorDuration = 0.5f;
+            }
+
+            #region Debug
+
             //-- Debug Movement --//
             //if (Keyboard.GetState().IsKeyDown(Keys.D))
             //{
@@ -187,11 +244,8 @@ namespace Roguelike.Class
             //}
 
 
-            if (isMoving == true)
-            {
-                Animate(gameTime);
-            }
-
+            //Debug - death
+            /*
             if (Keyboard.GetState().IsKeyDown(Keys.N))
             {
 
@@ -201,17 +255,17 @@ namespace Roguelike.Class
 
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.M))
-            {
-                Reveal();
-            }
+            */
+
+            //Debug - reveal
+
+            //if (Keyboard.GetState().IsKeyDown(Keys.M))
+            //{
+            //    Reveal();
+            //}
 
 
-            if (isEnemyDead == true)
-            {
-                EnemyDeath();
 
-            }
 
             //--Debug DealDamage() -- //
 
@@ -231,6 +285,7 @@ namespace Roguelike.Class
 
             //}
 
+            #endregion
 
         }
 
@@ -239,19 +294,8 @@ namespace Roguelike.Class
 
         }
 
-        public void MoveRight()
-        {
-            isMoving = true;
-            _position.X += speed * deltaTime;
-            effects = SpriteEffects.FlipHorizontally;
-        }
-        public void MoveLeft()
-        {
-            isMoving = true;
-            _position.X -= speed * deltaTime;
-            effects = SpriteEffects.None;
-        }
-        public void LoadContent(ContentManager Content)
+       
+        public override void LoadContent(ContentManager Content)
         {
 
 
@@ -266,21 +310,44 @@ namespace Roguelike.Class
 
 
             enemyRectangle = new Rectangle(0, 0, enemyTexture.Width, enemyTexture.Height);
+            sprite = enemyTexture;
         }
 
 
 
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+
+        public void Hit()
         {
-
-            //_spriteBatch.Draw(fisk, fiskRectangle, Color.White);
-            // Vector2 _position = new Vector2(300);
-
-            spriteBatch.Draw(enemyTexture, _position, enemyRectangle, myColor * alpha, rotation, origin, scale, effects, layerDepth);
-
+            DealDamage(5);
+            isHit = true;
         }
 
-        protected void Animate(GameTime gameTime)
+
+        /// <summary>
+        /// Move enemy right;
+        /// </summary>
+        public void MoveRight()
+        {
+            isMoving = true;
+            _position.X += speed * deltaTime;
+            effects = SpriteEffects.FlipHorizontally;
+        }
+
+        /// <summary>
+        /// Move enemy left
+        /// </summary>
+        public void MoveLeft()
+        {
+            isMoving = true;
+            _position.X -= speed * deltaTime;
+            effects = SpriteEffects.None;
+        }
+
+
+        /// <summary>
+        /// Animate enemy Sprite
+        /// </summary>
+        protected override void Animate(GameTime gameTime)
         {
             timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
             fishProgress = (int)(timeElapsed * fps);
@@ -289,41 +356,31 @@ namespace Roguelike.Class
                 timeElapsed = 0;
                 fishProgress = 0;
             }
-            enemyTexture = myfishy[fishProgress];
+            sprite = myfishy[fishProgress];
 
         }
+
+        /// <summary>
+        /// Stops Enemy movement and makes it fade away;
+        /// </summary>
         public void EnemyDeath()
         {
             isMoving = false;
             myColor = Color.Red;
-            alpha -= 0.02f;
+            Alpha -= 0.02f;
 
         }
+
+        /// <summary>
+        /// Reveals sprites. ONLY FOR DEBUGGING
+        /// </summary>
         public void Reveal()
         {
             isEnemyDead = false;
-            alpha += 0.02f;
+            Alpha += 0.02f;
             myColor = Color.White;
         }
 
-        public float Alpha
-        {
-            get
-            {
-                return alpha;
-            }
-            set
-            {
-                if (value > 0)
-                {
-                    alpha = value;
-                }
-                else
-                {
-                    alpha = 0;
-                }
-            }
-        }
 
 
     }
