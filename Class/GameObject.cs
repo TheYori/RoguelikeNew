@@ -26,6 +26,7 @@ namespace Roguelike.Class
         protected SpriteEffects effects = new SpriteEffects();
         protected SpriteEffects s = SpriteEffects.FlipHorizontally;
         protected float alpha = 1f;
+        protected float _rotation = 0f;
 
         protected float Alpha
         {
@@ -57,7 +58,7 @@ namespace Roguelike.Class
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, position, null , color*Alpha, 0, origin, _scale, effects, 0);
+            spriteBatch.Draw(sprite, position, null , color*Alpha, _rotation, origin, _scale, effects, 0);
         } 
 
         //positions the collisionbox rectangle
