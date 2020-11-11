@@ -28,6 +28,7 @@ namespace Roguelike.Class
         protected SpriteEffects s = SpriteEffects.FlipHorizontally;
         protected float alpha = 1f;
         protected float _rotation = 0f;
+        public int health;
 
         protected float Alpha
         {
@@ -48,7 +49,6 @@ namespace Roguelike.Class
             }
         }
 
-        public static int levelProgression;
 
         public abstract void Initialize();
         public abstract void LoadContent(ContentManager content);
@@ -105,6 +105,19 @@ namespace Roguelike.Class
                 timeElapsed = 0;
                 currentIndex = 0;
             }
-        } 
+        }
+
+        public void TakeHit()
+        {
+            velocity = new Vector2(0, 0);
+            position = new Vector2(position.X-200, position.Y);
+        }
+
+     
+        
+
+
+
+        
     }
 }

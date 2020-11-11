@@ -68,6 +68,18 @@
 /processorParam:TextureFormat=Compressed
 /build:Counter.spritefont
 
+#begin DeathSound.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:DeathSound.wav
+
+#begin DeatSound.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:DeatSound.mp3
+
 #begin EnemyF1.png
 /importer:TextureImporter
 /processor:TextureProcessor

@@ -42,6 +42,11 @@ namespace Roguelike.Class.UI
             }
         }
 
+        public void RemoveHeart()
+        {
+            GameManager.RemoveObject(this);
+        }
+
         public override void LoadContent(ContentManager content)
         {
             sprite = content.Load<Texture2D>("Hearth");

@@ -21,26 +21,26 @@ namespace Roguelike.Class.UI
         public override void Update(GameTime gameTime)
         {
             // Rotation Animation for Counter
-            if (rotating)
+            if (rotating == true)
             {
-                _rotation += 10f;
+                base._rotation += 0.001f;
 
-                if (_rotation >= 20f)
+                if (base._rotation >= 0.09f)
                 {
                     rotating = false;
                 }
             }
 
-            if (!rotating)
+            if (rotating == false)
             {
-                _rotation -= 0.001f;
+                base._rotation -= 0.001f;
 
-                if (_rotation <= 0.01f)
+                if (base._rotation <= 0.01f)
                 {
                     rotating = true;
                 }
             }
-        } 
+        }
 
         public override void LoadContent(ContentManager content)
         {

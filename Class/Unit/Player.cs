@@ -13,7 +13,7 @@ using Environment = Roguelike.Class.Environment;
 
 namespace Roguelike
 {
-    class Player : Unit
+    public class Player : Unit
     {
         // Fields for Dash ability
         private float dashRange;
@@ -28,7 +28,7 @@ namespace Roguelike
         private Vector2 spawnOffset;
         private bool spaceHeldDown;
         private GameObject weapon;
-        
+        private bool isWeaponRight;
 
         private BoostItem[] boostList;
 
@@ -45,6 +45,7 @@ namespace Roguelike
             speed = 500f;
             Type = UnitType.APlayer;
             weapon = myweapon;
+            health = 2;
         }
 
         public override void Update(GameTime gameTime)
@@ -124,16 +125,20 @@ namespace Roguelike
             //if we press A
             if (keyState.IsKeyDown(Keys.A))
             {
+                isWeaponRight = false;
                 //move left
                 velocity += new Vector2(-1, 0);
-                
+                base.effects = s;
             }
 
             //if we press D
             if (keyState.IsKeyDown(Keys.D))
             {
                 //move right
+                isWeaponRight = true;
+                
                 velocity += new Vector2(1, 0);
+                base.effects = SpriteEffects.None;
             }
         }  //Left, Right, Jump
 
@@ -162,8 +167,19 @@ namespace Roguelike
 
             if (keyState.IsKeyDown(Keys.Space) && spaceHeldDown == true)
             {
-                weapon.position.X = position.X + sprite.Width / 2;
-                weapon.position.Y = position.Y + sprite.Height / -1.2f;
+                if(isWeaponRight == true)
+                {
+                    weapon.position.X = position.X + sprite.Width / 2;
+                    weapon.position.Y = position.Y + sprite.Height / -2;
+                }
+                else if( isWeaponRight == false)
+                {
+
+
+                    weapon.position.X = position.X - sprite.Width * 1.4f;
+                    weapon.position.Y = position.Y - sprite.Height / +2;
+                }
+                //OI!
                 GameManager.AddObject(weapon);
                 spaceHeldDown = false;
             }
@@ -194,15 +210,13 @@ namespace Roguelike
 
         }
 
-        public void CheckBoostitem(BoostItem boostItem)
-        {
-
-        }
-
+    
         private void RemoveBoost(BoostItem boostItem)
         {
 
         }
+
+   
 
         public override void LoadContent(ContentManager content)
         {

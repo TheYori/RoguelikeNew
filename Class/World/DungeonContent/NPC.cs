@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Roguelike.Class.World.DungeonContent
 {
-    class NPC : Environment
+   public class NPC : Environment
     {
 
         public NPC(Vector2 Position) : base(Position)

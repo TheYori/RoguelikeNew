@@ -22,19 +22,19 @@ namespace Roguelike
         protected Vector2 position;
         protected Rectangle collisionBox;
 
-        private List<GameObject> gameObjects;
+        private static List<GameObject> gameObjects;
         public static List<GameObject> environmentList;
         static List<GameObject> removeList;
         private static List<GameObject> addObject;
-        private List<Heart> hearts;
+        private static List<Heart> hearts;
         private Counter monsterUI;
-      
 
-
+        public static int monstersLeft;
 
         public static LevelGenerator lg;
 
         //player
+        public Player player;
         protected static Vector2 screenSize;
         private Texture2D collisionTexture;
         public static Vector2 GetScreenSize { get => screenSize; }
@@ -67,7 +67,7 @@ namespace Roguelike
             environmentList = new List<GameObject>();
             weapon = new MeleeWeapon(new Vector2(0, 0));
             // TODO: Add your initialization logic here
-            Player player = new Player(weapon);
+            player = new Player(weapon);
             hearts = new List<Heart>(3) {
                 new Heart(new Vector2(150, 150), 0.05f),
                 new Heart(new Vector2(250, 150),0.05f),
@@ -76,10 +76,14 @@ namespace Roguelike
             monsterUI = new Counter(new Vector2(300, 300), 0.3f, 0f);
             currentDungeon = new Dungeon(Theme.science, new Level((int)screenSize.X, (int)screenSize.Y, environmentList));
 
-           
+
+            //gameObjects.Add(currentDungeon);
             gameObjects.Add(weapon);
             gameObjects.Add(currentDungeon);
             gameObjects.Add(player);
+
+
+
             foreach (GameObject obj in hearts)
             {
                 gameObjects.Add(obj);
@@ -184,6 +188,32 @@ namespace Roguelike
      
 
         }
+
+        public static void UpdateHealthUi(int health) {
+
+            RemoveObject(hearts[health]);
+
+
+            if(health == 0)
+            {
+               //Die
+            }
+
+        }
+
+        public static void SpawnPortal() { 
+        
+        foreach(GameObject obj in gameObjects)
+            {
+                if(obj is Portal)
+                {
+                    obj.position.X = 800;
+                }
+            }
+                
+                    }
+
+
 
         public static void AddObject(GameObject obj)
         {

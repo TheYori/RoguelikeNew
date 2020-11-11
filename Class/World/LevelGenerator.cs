@@ -23,16 +23,19 @@ namespace Roguelike.Class
             {
                 levelList.Add(new Floor(new Vector2(0, 992)));
 
+                GameManager.monstersLeft = 1;
 
-
-                levelList.Add(new Enemy(new Vector2(800,250),1,5));
+                levelList.Add(new Enemy(new Vector2(150, 980), 1, 5));
+                levelList.Add(new Enemy(new Vector2(800,80),1,5));
                 levelList.Add(new SmallPlatform(new Vector2(400, 800)));
                 levelList.Add(new SmallPlatform(new Vector2(800, 500)));
                 levelList.Add(new LargePlatform(new Vector2(800, 200)));
+
+                levelList.Add(new Enemy(new Vector2(120, 480), 1, 5));
                 levelList.Add(new Platform(new Vector2(100, 600)));
               
 
-                levelList.Add(new Portal(new Vector2(1400, 500)));
+                levelList.Add(new Portal(new Vector2(-1400, 500)));
 
             }
 

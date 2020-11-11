@@ -8,13 +8,16 @@ using Microsoft.Xna.Framework.Content;
 using SharpDX.Direct3D9;
 using System.Diagnostics;
 using System.Linq;
-
+using Microsoft.Xna.Framework.Audio;
+using Roguelike.Class.World.DungeonContent;
+using System.Drawing.Text;
 
 namespace Roguelike.Class
 {
     class Enemy : Unit
     {
-
+        // Sound
+        private SoundEffectInstance deathSound;
         // - Draw parameters -//
         private Texture2D enemyTexture;
         private Texture2D[] myfishy = new Texture2D[6];
@@ -143,7 +146,7 @@ namespace Roguelike.Class
             }
 
 
-            if (moveTime > 0 && isMoving == true)
+            if (isMoving == true)
             {
                 moveTime -= delta;
                 if (isMovingRight == true)
@@ -155,20 +158,7 @@ namespace Roguelike.Class
                     MoveLeft();
                 }
             }
-            else if (moveTime < 0 && isMoving == true)
-            {
-                if (isMovingRight == true)
-                {
-                    isMovingRight = false;
-                    isMovingLeft = true;
-                }
-                else if (isMovingLeft == true)
-                {
-                    isMovingLeft = false;
-                    isMovingRight = true;
-                }
-                moveTime = maxMoveTime;
-            }
+           
 
             if (base.health <= 0)
             {
@@ -200,6 +190,12 @@ namespace Roguelike.Class
                 colorDuration = 0.5f;
             }
 
+            if (isEnemyDead == true && base.Alpha < 0)
+            {
+                GameManager.RemoveObject(this);
+            }
+
+
             #region Debug
 
             //-- Debug Movement --//
@@ -210,6 +206,16 @@ namespace Roguelike.Class
             //    effects = SpriteEffects.FlipHorizontally;
 
             //}
+
+
+            /*
+            if (Keyboard.GetState().IsKeyDown(Keys.D))
+            {
+                deathSound.Play();
+
+            }
+            */
+
 
             //else if (Keyboard.GetState().IsKeyDown(Keys.A))
             //{
@@ -286,9 +292,10 @@ namespace Roguelike.Class
             //        isTestKeyDown = true;
             //    }
 
-            #endregion
+
 
             //}
+            #endregion
         }
 
         public override void Initialize()
@@ -313,6 +320,10 @@ namespace Roguelike.Class
 
             enemyRectangle = new Rectangle(0, 0, enemyTexture.Width, enemyTexture.Height);
             sprite = enemyTexture;
+
+            deathSound = Content.Load<SoundEffect>("DeathSound").CreateInstance();
+
+
         }
 
 
@@ -367,6 +378,7 @@ namespace Roguelike.Class
         /// </summary>
         public void EnemyDeath()
         {
+            deathSound.Play();
             isMoving = false;
            base.color = Color.Red;
             base.Alpha -= 0.02f;
@@ -383,6 +395,51 @@ namespace Roguelike.Class
             base.color = Color.White;
         }
 
+        public override void OnCollision(GameObject gameObject)
+        {
+            if (gameObject is MeleeWeapon)
+            {
+                GameManager.RemoveObject(this);
+                GameManager.monstersLeft--;
+
+                if(GameManager.monstersLeft <= 0)
+                {
+                    GameManager.SpawnPortal();
+                }
+            }
+
+                if (gameObject is Player)
+            {
+
+                gameObject.TakeHit();
+                GameManager.UpdateHealthUi(gameObject.health);
+                gameObject.health--;
+
+
+            }
+
+                if (gameObject is Environment)
+            {
+
+
+               if(position.X + sprite.Width > gameObject.position.X + gameObject.sprite.Width)
+                {
+                    isMovingLeft = true;
+                    isMovingRight = false;
+
+                }
+
+                if (position.X < gameObject.position.X )
+                {
+                    isMovingLeft = false;
+                    isMovingRight = true;
+
+                }
+
+
+
+            }
+        }
 
 
     }
