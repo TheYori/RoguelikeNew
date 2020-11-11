@@ -156,7 +156,6 @@ namespace Roguelike
 
             if (keyState.IsKeyDown(Keys.Space))
             {
-
                 GameManager.AddObject(new MeleeWeapon(meleeSprite, new Vector2(position.X + spawnOffset.X, position.Y + spawnOffset.Y)));
             }
         }
@@ -219,14 +218,7 @@ namespace Roguelike
             this.offset = new Vector2(sprite.Width / -2, sprite.Height * -1); //Centers the Collison box
             if (gameObject is Environment)
             {
-                // Get the current keyboard state
-                KeyboardState keyState = Keyboard.GetState();
-
-                if (gameObject.position.Y - gameObject.sprite.Height > position.Y - sprite.Height && !keyState.IsKeyDown(Keys.W))
-                {
-                    jumpAllowed = true;
-                }
-               
+                jumpAllowed = true;
             }
         }
     }
