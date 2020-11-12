@@ -25,7 +25,7 @@ namespace Roguelike.Class
         public override void LoadContent(ContentManager content)
         {
 
-           sprite = content.Load<Texture2D>("platFormDummyLargSize");
+           sprite = content.Load<Texture2D>("platFormDummyLargeSize");
 
 
         }

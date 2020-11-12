@@ -4,31 +4,37 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/1player_walk_Placeholder.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/2player_walk_Placeholder.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/charecterDesign2.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/CollisionTexture.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/Counter.spritefont</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/DeathSound.wav</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/DeatSound.mp3</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/EnemyF1.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/EnemyF2.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/EnemyF3.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/EnemyF4.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/EnemyF5.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/EnemyF6.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/Ground.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/Hearth.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/MonsterIcon.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/platFormDummyBigSize.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/platFormDummyLargSize.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/platFormDummyNormalSize.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/Portal.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/ScienceLabBackDrop.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/weaponLeft.png</File>
-    <File>C:/Users/ricki/source/repos/RoguelikeNew2/Content/weaponRight.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/1player_walk_Placeholder.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/2player_walk_Placeholder.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/charecterDesign2.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/CollisionTexture.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Counter.spritefont</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/DeathSound.wav</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/DeatSound.mp3</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/EnemyF1.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/EnemyF2.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/EnemyF3.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/EnemyF4.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/EnemyF5.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/EnemyF6.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Ground.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Hearth.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/MonsterIcon.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Music.mp3</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Pain.wav</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/platFormDummyBigSize.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/platFormDummyLargeSize.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/platFormDummyNormalSize.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/PlayerSlash.wav</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/Portal.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/ScienceLabBackDrop.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/weaponLeft.png</File>
+    <File>C:/Users/Bruger/source/repos/RoguelikeNew/Content/weaponRight.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

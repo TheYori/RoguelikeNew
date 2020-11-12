@@ -212,7 +212,7 @@
 /processorParam:TextureFormat=Color
 /build:platFormDummyBigSize.png
 
-#begin platFormDummyLargSize.png
+#begin platFormDummyLargeSize.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -222,7 +222,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:platFormDummyLargSize.png
+/build:platFormDummyLargeSize.png
 
 #begin platFormDummyNormalSize.png
 /importer:TextureImporter

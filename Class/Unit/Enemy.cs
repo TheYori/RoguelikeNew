@@ -55,6 +55,7 @@ namespace Roguelike.Class
         public bool isMovingRight;
         public bool isMovingLeft;
         public bool isTestKeyDown = false;
+        public bool destroyedSoundPlayed;
 
 
         //GetHit
@@ -69,7 +70,7 @@ namespace Roguelike.Class
         public float deltaTime;
 
         public float behaviorTime = 4;
-        public float deathTime = 4;
+        public float deathTime = 0.8f;
         private float moveTime = 3;
         private float maxMoveTime = 3;
 
@@ -187,10 +188,18 @@ namespace Roguelike.Class
                 colorDuration = 0.5f;
             }
 
-            if (isEnemyDead == true && base.Alpha < 0)
+            if (isEnemyDead == true )
             {
-                GameManager.RemoveObject(this);
+                deathTime -= delta;
+                Debug.Print(deathTime.ToString());
+                if (deathTime <= 0)
+                {
+                   
+                    GameManager.RemoveObject(this);
+                }
+                
             }
+
 
 
             #region Debug
@@ -370,7 +379,11 @@ namespace Roguelike.Class
         /// </summary>
         public void EnemyDeath()
         {
-            deathSound.Play();
+            if (destroyedSoundPlayed == false)
+            {
+                deathSound.Play();
+                destroyedSoundPlayed = true;
+            }
             isMoving = false;
            base.color = Color.Red;
             base.Alpha -= 0.02f;
@@ -387,11 +400,14 @@ namespace Roguelike.Class
             base.color = Color.White;
         }
 
+        
+
         public override void OnCollision(GameObject gameObject)
         {
             if (gameObject is MeleeWeapon)
             {
-                EnemyDeath();
+                isEnemyDead = true;
+               
                 GameManager.monstersLeft--;
 
                 if(GameManager.monstersLeft <= 0)
@@ -403,9 +419,13 @@ namespace Roguelike.Class
                 if (gameObject is Player)
             {
 
-                gameObject.TakeHit();
-                GameManager.UpdateHealthUi(gameObject.health);
-                gameObject.health--;
+                if(isEnemyDead == false)
+                {
+                    gameObject.TakeHit();
+                    GameManager.UpdateHealthUi(gameObject.health);
+                    gameObject.health--;
+                }
+               
 
 
             }
