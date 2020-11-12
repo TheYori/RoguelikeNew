@@ -10,6 +10,7 @@ namespace Roguelike.Class.UI
     class Counter : UIManager
     {
         private bool rotating = true;
+        private SpriteFont _font;
 
         public Counter(Vector2 Position, float scale, float rotation) : base(Position)
         {
@@ -21,6 +22,7 @@ namespace Roguelike.Class.UI
 
         public override void Update(GameTime gameTime)
         {
+
             // Rotation Animation for Counter
             if (rotating == true)
             {
@@ -46,6 +48,9 @@ namespace Roguelike.Class.UI
         public override void LoadContent(ContentManager content)
         {
             sprite = content.Load<Texture2D>("MonsterIcon");
+            _font = content.Load<SpriteFont>("Counter");
         }
+
+
     }
 }

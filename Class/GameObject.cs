@@ -30,6 +30,8 @@ namespace Roguelike.Class
         protected float _rotation = 0f;
         public int health;
 
+        private SpriteFont _font;
+
         protected float Alpha
         {
             get
@@ -60,6 +62,7 @@ namespace Roguelike.Class
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(sprite, position, null , color*Alpha, _rotation, origin, _scale, effects, 0);
+            
         } 
 
         //positions the collisionbox rectangle
