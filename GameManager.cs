@@ -39,7 +39,7 @@ namespace Roguelike
         public static LevelGenerator lg;
 
         //player
-        public Player player;
+        public static Player player;
         protected static Vector2 screenSize;
         private Texture2D collisionTexture;
         public static Vector2 GetScreenSize { get => screenSize; }
@@ -78,6 +78,7 @@ namespace Roguelike
                 new Heart(new Vector2(250, 150),0.05f),
                 new Heart(new Vector2(350, 150), 0.05f)
               };
+            monsterUI = new Counter(new Vector2(150, 250), 0.2f, 0);
             currentDungeon = new Dungeon(Theme.science, new Level((int)screenSize.X, (int)screenSize.Y, environmentList));
 
             //gameObjects.Add(currentDungeon);
@@ -102,15 +103,17 @@ namespace Roguelike
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             content = this.Content;
-            
-            foreach(GameObject obj in gameObjects)
-            {
-                obj.LoadContent(content);
-            }
 
             ChangeLevel(levelProgression);
 
             collisionTexture = Content.Load<Texture2D>("CollisionTexture");
+
+            foreach (GameObject obj in gameObjects)
+            {
+                obj.LoadContent(content);
+            }
+
+
 
             // TODO: use this.Content to load your game content here
 
@@ -167,7 +170,7 @@ namespace Roguelike
                 obj.Draw(_spriteBatch);
 
                 #if DEBUG
-                DrawCollisionBox(obj);
+               // DrawCollisionBox(obj);
                 #endif
             }
 
@@ -205,7 +208,7 @@ namespace Roguelike
 
             if (health == 0)
             {
-               //Die
+                RemoveObject(player);
             }
 
         }

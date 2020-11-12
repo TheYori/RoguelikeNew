@@ -406,11 +406,16 @@ namespace Roguelike.Class
         {
             if (gameObject is MeleeWeapon)
             {
-                isEnemyDead = true;
-               
-                GameManager.monstersLeft--;
+                if(isEnemyDead == false)
+                {
+                    GameManager.monstersLeft--;
+                }
 
-                if(GameManager.monstersLeft <= 0)
+
+                isEnemyDead = true;
+
+
+                if (GameManager.monstersLeft <= 0)
                 {
                     GameManager.SpawnPortal();
                 }

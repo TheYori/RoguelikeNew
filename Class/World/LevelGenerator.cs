@@ -23,30 +23,41 @@ namespace Roguelike.Class
             {
                 levelList.Add(new Floor(new Vector2(0, 992)));
 
-                //hvor mange fjnder er der i dette level.
-                GameManager.monstersLeft = 3;
-
-                levelList.Add(new Enemy(new Vector2(150, 980), 1, 5));
-                levelList.Add(new Enemy(new Vector2(800,80),1,5));
                 levelList.Add(new SmallPlatform(new Vector2(400, 800)));
                 levelList.Add(new SmallPlatform(new Vector2(800, 500)));
-                levelList.Add(new LargePlatform(new Vector2(800, 200)));
 
-                levelList.Add(new Enemy(new Vector2(120, 480), 1, 5));
+                levelList.Add(new SmallPlatform(new Vector2(1200, 700)));
+
                 levelList.Add(new Platform(new Vector2(100, 600)));
-              
 
-                levelList.Add(new Portal(new Vector2(-1400, 500)));
+                levelList.Add(new LargePlatform(new Vector2(800, 200)));
+                levelList.Add(new LargePlatform(new Vector2(1300, 550)));
+
+                //-127 er fjendes højde (pånær 1px. der gør at den konstant collidere for at tjekke om den skal vende)
+                //hvor mange fjnder er der i dette level.
+                GameManager.monstersLeft = 3;
+                levelList.Add(new Enemy(new Vector2(1450, 550-127), 0, 5));
+                levelList.Add(new Enemy(new Vector2(800, 200-127), 1, 5));
+                levelList.Add(new Enemy(new Vector2(170, 600-127), 1, 5));
+
+                levelList.Add(new Portal(new Vector2(-1400, 722)));
 
             }
 
             if (levelProgression == 2) 
             {
                 levelList.Add(new Floor(new Vector2(0, 992)));
+
+
                 levelList.Add(new Platform(new Vector2(400, 250)));
                 levelList.Add(new Platform(new Vector2(800, 300)));
                 levelList.Add(new Platform(new Vector2(800, 500)));
-                levelList.Add(new Portal(new Vector2(100, 500)));
+
+
+                GameManager.monstersLeft = 1;
+                levelList.Add(new Enemy(new Vector2(600, 992 - 127), 0, 5));
+
+                levelList.Add(new Portal(new Vector2(-1400, 722)));
             }
 
             if (levelProgression == 3)

@@ -91,24 +91,24 @@ namespace Roguelike.Class
             return false;
         } 
 
-        protected  virtual void Animate(GameTime gameTime)
-        {
-            //Adds time that has passed since last update
-            timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
+        //protected  virtual void Animate(GameTime gameTime)
+        //{
+        //    //Adds time that has passed since last update
+        //    timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            //Calculates the current index
-            currentIndex = (int)(timeElapsed * fps);
+        //    //Calculates the current index
+        //    currentIndex = (int)(timeElapsed * fps);
 
-            sprite = sprites[currentIndex];
+        //    sprite = sprites[currentIndex];
 
-            //Checks if we need to restart the animation
-            if (currentIndex >= sprites.Length - 1)
-            {
-                //Resets the animation
-                timeElapsed = 0;
-                currentIndex = 0;
-            }
-        }
+        //    //Checks if we need to restart the animation
+        //    if (currentIndex >= sprites.Length - 1)
+        //    {
+        //        //Resets the animation
+        //        timeElapsed = 0;
+        //        currentIndex = 0;
+        //    }
+        //}
 
         public void TakeHit()
         {
