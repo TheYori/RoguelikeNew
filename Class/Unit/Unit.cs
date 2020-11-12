@@ -12,22 +12,16 @@ namespace Roguelike.Class
     {
         AnEnemy, APlayer, None
     }
+
     public class Unit : GameObject
     {
-
-
-
-
-
         protected UnitType Type = UnitType.None;
+
         public int DealDamage(int a)
         {
             return health -= a;
             
         }
-
-
-
 
         protected void Move(GameTime gameTime)
         {

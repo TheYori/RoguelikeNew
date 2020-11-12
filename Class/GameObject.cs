@@ -13,6 +13,7 @@ namespace Roguelike.Class
         protected Vector2 origin;
         protected Color color;
         public Vector2 position;
+        
 
 
         protected Texture2D[] sprites;
@@ -50,7 +51,6 @@ namespace Roguelike.Class
             }
         }
 
-        public static int levelProgression;
 
         public abstract void Initialize();
         public abstract void LoadContent(ContentManager content);
@@ -108,6 +108,22 @@ namespace Roguelike.Class
                 timeElapsed = 0;
                 currentIndex = 0;
             }
-        } 
+        }
+
+        public void TakeHit()
+        {
+            velocity = new Vector2(0, 0);
+            position = new Vector2(position.X-200, position.Y);
+        }
+
+        public virtual void PlaySound()
+        {
+
+        }
+        
+
+
+
+        
     }
 }

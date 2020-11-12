@@ -9,11 +9,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 using Environment = Roguelike.Class.Environment;
 
 namespace Roguelike
 {
-    class Player : Unit
+    public class Player : Unit
     {
         // Fields for Dash ability
         private float dashRange;
@@ -28,8 +29,14 @@ namespace Roguelike
         private Vector2 spawnOffset;
         private bool spaceHeldDown;
         private GameObject weapon;
+        private bool isWeaponRight;
+        private SoundEffectInstance slashSound;
+        private bool slashSoundPlayed;
 
         private BoostItem[] boostList;
+        //Fields for sound and music
+        public Song backgroundMusic;
+        public SoundEffectInstance painSound;
 
         // Fields for movements
         private bool jumpHeldDown;
@@ -44,7 +51,7 @@ namespace Roguelike
             speed = 500f;
             Type = UnitType.APlayer;
             weapon = myweapon;
-            health = 3;
+            health = 2;
         }
 
         public override void Update(GameTime gameTime)
@@ -124,15 +131,20 @@ namespace Roguelike
             //if we press A
             if (keyState.IsKeyDown(Keys.A))
             {
+                isWeaponRight = false;
                 //move left
                 velocity += new Vector2(-1, 0);
+                base.effects = s;
             }
 
             //if we press D
             if (keyState.IsKeyDown(Keys.D))
             {
                 //move right
+                isWeaponRight = true;
+                
                 velocity += new Vector2(1, 0);
+                base.effects = SpriteEffects.None;
             }
         }  //Left, Right, Jump
 
@@ -156,15 +168,37 @@ namespace Roguelike
 
         private void Attack()
         {
+
             
             KeyboardState keyState = Keyboard.GetState();
 
             if (keyState.IsKeyDown(Keys.Space) && spaceHeldDown == true)
             {
-                weapon.position.X = position.X + sprite.Width / 2;
-                weapon.position.Y = position.Y + sprite.Height / -2; //OI!
+                if(isWeaponRight == true)
+                {
+                    weapon.position.X = position.X + sprite.Width / 2;
+                    weapon.position.Y = position.Y + sprite.Height / -2;
+                }
+                else if( isWeaponRight == false)
+                {
+
+
+                    weapon.position.X = position.X - sprite.Width * 1.4f;
+                    weapon.position.Y = position.Y - sprite.Height / +2;
+                }
+                //OI!
                 GameManager.AddObject(weapon);
                 spaceHeldDown = false;
+
+                //Play melee Audio
+                slashSound.Play();
+
+                //if (slashSoundPlayed == false)
+                //{
+                //    slashSound.Play();
+                //    slashSoundPlayed = true;
+                //}
+
             }
             if (!keyState.IsKeyDown(Keys.Space) && spaceHeldDown == false)
             {
@@ -193,11 +227,7 @@ namespace Roguelike
 
         }
 
-        public void CheckBoostitem(BoostItem boostItem)
-        {
-
-        }
-
+    
         private void RemoveBoost(BoostItem boostItem)
         {
 
@@ -226,6 +256,13 @@ namespace Roguelike
             //Remove these to lines of code IF player have to spawn elsewhere or need a proper ground to stand on
             this.position = new Vector2(GameManager.GetScreenSize.X - GameManager.GetScreenSize.X + sprite.Width / 2, GameManager.GetScreenSize.Y - sprite.Height / 2); 
             this.origin = new Vector2(sprite.Width / 2, sprite.Height);
+
+            //load slash/melee audio
+            slashSound = content.Load<SoundEffect>("PlayerSlash").CreateInstance();
+            painSound = content.Load<SoundEffect>("Pain").CreateInstance();
+            backgroundMusic = content.Load<Song>("Music");
+            MediaPlayer.Play(backgroundMusic);
+            MediaPlayer.IsRepeating = true;
         }
 
         // Makes collisionBox visible for the player sprite
@@ -243,6 +280,13 @@ namespace Roguelike
                 }
                
             }
+        }
+
+        public override void PlaySound()
+        {
+            painSound.Play();
+
+            base.PlaySound();
         }
     }
 }
