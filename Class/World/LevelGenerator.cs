@@ -36,7 +36,7 @@ namespace Roguelike.Class
                 levelList.Add(new Platform(new Vector2(100, 600)));
               
 
-                levelList.Add(new Portal(new Vector2(-1400, 500)));
+                levelList.Add(new Portal(new Vector2(-1400, 722)));
 
             }
 
