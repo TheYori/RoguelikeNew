@@ -49,13 +49,21 @@ namespace Roguelike.Class
                 levelList.Add(new Floor(new Vector2(0, 992)));
 
 
-                levelList.Add(new Platform(new Vector2(400, 250)));
-                levelList.Add(new Platform(new Vector2(800, 300)));
-                levelList.Add(new Platform(new Vector2(800, 500)));
+                levelList.Add(new SmallPlatform(new Vector2(1327, 782)));
+                levelList.Add(new SmallPlatform(new Vector2(1093, 700)));
+                levelList.Add(new SmallPlatform(new Vector2(666, 610)));
+                levelList.Add(new SmallPlatform(new Vector2(276, 420)));
 
 
-                GameManager.monstersLeft = 1;
-                levelList.Add(new Enemy(new Vector2(600, 992 - 127), 0, 5));
+                levelList.Add(new LargePlatform(new Vector2(81, 780)));
+                levelList.Add(new Platform(new Vector2(598, 131)));
+                levelList.Add(new LargePlatform(new Vector2(1216, 269)));
+
+                GameManager.monstersLeft = 4;
+                levelList.Add(new Enemy(new Vector2(90, 780 - 127), 1, 5));
+                levelList.Add(new Enemy(new Vector2(600, 131 - 127), 0, 5));
+                levelList.Add(new Enemy(new Vector2(1220, 269 - 127), 0, 5));
+                levelList.Add(new Enemy(new Vector2(1000, 992 - 127), 1, 5));
 
                 levelList.Add(new Portal(new Vector2(-1400, 722)));
             }
@@ -63,14 +71,52 @@ namespace Roguelike.Class
             if (levelProgression == 3)
             {
                 levelList.Add(new Floor(new Vector2(0, 992)));
-                levelList.Add(new Platform(new Vector2(400, 200)));
-                levelList.Add(new Platform(new Vector2(800, 100)));
-                levelList.Add(new Platform(new Vector2(200, 500)));
+
+
+                levelList.Add(new SmallPlatform(new Vector2(188, 441)));
+                levelList.Add(new SmallPlatform(new Vector2(1092, 250)));
+                levelList.Add(new SmallPlatform(new Vector2(1330, 250)));
+                levelList.Add(new SmallPlatform(new Vector2(1572, 250)));
+                levelList.Add(new SmallPlatform(new Vector2(1300, 770)));
+
+                levelList.Add(new LargePlatform(new Vector2(408, 441)));
+                levelList.Add(new LargePlatform(new Vector2(650, 690)));
+                levelList.Add(new Platform(new Vector2(1360, 460)));
+
+
+                GameManager.monstersLeft = 7;
+                levelList.Add(new Enemy(new Vector2(540, 441 - 127), 1, 5));
+                levelList.Add(new Enemy(new Vector2(1100, 250 - 127), 0, 5));
+                levelList.Add(new Enemy(new Vector2(1666, 250 - 127), 1, 5));
+
+                levelList.Add(new Enemy(new Vector2(700, 690 - 127), 1, 5));
+                levelList.Add(new Enemy(new Vector2(1370, 460 - 127), 0, 5));
+
+                levelList.Add(new Enemy(new Vector2(140, 992 - 127), 1, 5));
+                levelList.Add(new Enemy(new Vector2(980, 992 - 127), 0, 5));
+
+                levelList.Add(new Portal(new Vector2(-1400, 722)));
 
             }
 
+            if (levelProgression == 4)
+            {
+                levelList.Add(new Floor(new Vector2(0, 992)));
 
-            foreach (GameObject obj in levelList) {
+                GameManager.monstersLeft = 8;
+                levelList.Add(new Enemy(new Vector2(540, 992 - 127), 1, 5));
+                levelList.Add(new Enemy(new Vector2(1100, 992 - 127), 0, 5));
+                levelList.Add(new Enemy(new Vector2(1666, 992 - 127), 1, 5));
+
+                levelList.Add(new Enemy(new Vector2(700, 992 - 127), 1, 5));
+                levelList.Add(new Enemy(new Vector2(1370, 992 - 127), 0, 5));
+
+                levelList.Add(new Enemy(new Vector2(640, 992 - 127), 0, 5));
+                levelList.Add(new Enemy(new Vector2(880, 992 - 127), 1, 5));
+            }
+
+
+                foreach (GameObject obj in levelList) {
                 obj.Initialize();
                 obj.LoadContent(content);
             }
