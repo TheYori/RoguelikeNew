@@ -13,7 +13,8 @@ namespace Roguelike.Class
         protected Vector2 origin;
         protected Color color;
         public Vector2 position;
-        
+
+
 
 
         protected Texture2D[] sprites;
@@ -30,7 +31,7 @@ namespace Roguelike.Class
         protected float _rotation = 0f;
         public int health;
 
-        private SpriteFont _font;
+       
 
         protected float Alpha
         {
@@ -61,8 +62,7 @@ namespace Roguelike.Class
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, position, null , color*Alpha, _rotation, origin, _scale, effects, 0);
-            
+            spriteBatch.Draw(sprite, position, null , color*Alpha, _rotation, origin, _scale, effects, 0);           
         } 
 
         //positions the collisionbox rectangle
