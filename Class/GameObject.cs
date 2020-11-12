@@ -11,7 +11,7 @@ namespace Roguelike.Class
     {
         public Texture2D sprite;
         protected Vector2 origin;
-        protected Color color;
+        public Color color;
         public Vector2 position;
 
 
@@ -19,7 +19,7 @@ namespace Roguelike.Class
 
         protected Texture2D[] sprites;
         protected float speed;
-        protected float _scale = 1f;
+        public float _scale = 1f;
         public Vector2 velocity;
         protected Vector2 offset;
         protected float fps;
@@ -30,8 +30,8 @@ namespace Roguelike.Class
         protected float alpha = 1f;
         protected float _rotation = 0f;
         public int health;
+        protected SpriteFont _font;
 
-       
 
         protected float Alpha
         {
@@ -62,8 +62,18 @@ namespace Roguelike.Class
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, position, null , color*Alpha, _rotation, origin, _scale, effects, 0);           
-        } 
+
+            if(_font == null)
+            {
+                spriteBatch.Draw(sprite, position, null, color * Alpha, _rotation, origin, _scale, effects, 0);
+            } else
+            {
+                spriteBatch.Draw(sprite, position, null, color * Alpha, _rotation, origin, _scale, effects, 0);
+                spriteBatch.DrawString(_font, ""+GameManager.monstersLeft, new Vector2(220, 210), Color.White);
+            }
+
+
+        }
 
         //positions the collisionbox rectangle
         public Rectangle CollisionBox

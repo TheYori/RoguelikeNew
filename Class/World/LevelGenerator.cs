@@ -88,10 +88,8 @@ namespace Roguelike.Class
                 levelList.Add(new Enemy(new Vector2(540, 441 - 127), 1, 5));
                 levelList.Add(new Enemy(new Vector2(1100, 250 - 127), 0, 5));
                 levelList.Add(new Enemy(new Vector2(1666, 250 - 127), 1, 5));
-
                 levelList.Add(new Enemy(new Vector2(700, 690 - 127), 1, 5));
                 levelList.Add(new Enemy(new Vector2(1370, 460 - 127), 0, 5));
-
                 levelList.Add(new Enemy(new Vector2(140, 992 - 127), 1, 5));
                 levelList.Add(new Enemy(new Vector2(980, 992 - 127), 0, 5));
 

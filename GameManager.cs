@@ -28,8 +28,8 @@ namespace Roguelike
         static List<GameObject> removeList;
         private static List<GameObject> addObject;
         private static List<Heart> hearts;
-        private Counter monsterUI;
-        private Counter monsterLeft;
+        public static Counter monsterUI;
+
         
 
         public static int monstersLeft;
@@ -173,6 +173,9 @@ namespace Roguelike
                // DrawCollisionBox(obj);
                 #endif
             }
+
+            monsterUI.Draw( _spriteBatch);
+                
 
             _spriteBatch.End();
             base.Draw(gameTime);
