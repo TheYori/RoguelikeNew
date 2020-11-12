@@ -29,6 +29,8 @@ namespace Roguelike
         private static List<GameObject> addObject;
         private static List<Heart> hearts;
         private Counter monsterUI;
+        private Counter monsterLeft;
+        
 
         public static int monstersLeft;
 
@@ -76,9 +78,7 @@ namespace Roguelike
                 new Heart(new Vector2(250, 150),0.05f),
                 new Heart(new Vector2(350, 150), 0.05f)
               };
-            monsterUI = new Counter(new Vector2(300, 300), 0.3f, 0f);
             currentDungeon = new Dungeon(Theme.science, new Level((int)screenSize.X, (int)screenSize.Y, environmentList));
-
 
             //gameObjects.Add(currentDungeon);
             gameObjects.Add(weapon);
@@ -114,7 +114,7 @@ namespace Roguelike
 
             // TODO: use this.Content to load your game content here
 
-           
+
 
             base.LoadContent();
         }

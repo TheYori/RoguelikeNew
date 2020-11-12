@@ -11,6 +11,7 @@ namespace Roguelike.Class.UI
     {
         private bool scaling = true;
 
+
         public Heart(Vector2 Position, float scale) : base(Position)
         {
             _scale = scale;

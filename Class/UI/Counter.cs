@@ -10,7 +10,8 @@ namespace Roguelike.Class.UI
     class Counter : UIManager
     {
         private bool rotating = true;
-        private SpriteFont _font;
+        private int enemyLeft;
+
 
         public Counter(Vector2 Position, float scale, float rotation) : base(Position)
         {
@@ -50,7 +51,6 @@ namespace Roguelike.Class.UI
             sprite = content.Load<Texture2D>("MonsterIcon");
             _font = content.Load<SpriteFont>("Counter");
         }
-
 
     }
 }
