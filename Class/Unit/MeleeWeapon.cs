@@ -11,13 +11,17 @@ namespace Roguelike
     public class MeleeWeapon : GameObject
     {
         private bool isWeaponRight;
-
+        private float timeElapsed;
+        private int animationProgress = 0;
+        private float fps = 500;
+        //private sprites
 
         public MeleeWeapon(Vector2 position)
         {
             this.position = position;
             color = Color.White;
             origin = Vector2.Zero;
+            
 
         }
 
@@ -29,14 +33,26 @@ namespace Roguelike
         public override void LoadContent(ContentManager content)
         {
             //Loads melee weapon
-            sprite = content.Load<Texture2D>("weaponRight");
+            //sprite = content.Load<Texture2D>("weaponRight");
+
+            //Instantiates the sprite array
+            sprites = new Texture2D[6];
+
+            //Loads all sprites into the array
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                sprites[i] = content.Load<Texture2D>("Weapon" + (i + 1).ToString());
+            }
         }
 
         public override void Update(GameTime gameTime)
         {
             KeyboardState keyState = Keyboard.GetState();
-
-
+            AnimateE(gameTime);
+            if(animationProgress == sprites.Length - 1)
+            {
+                GameManager.RemoveObject(this);
+            }
             //if(KeyboardState.GetState().IsKeyDown(Keys.A))
             //{
 
@@ -63,6 +79,22 @@ namespace Roguelike
             {
 
             }
+        }
+        protected void AnimateE(GameTime gameTime)
+        {
+            timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            animationProgress = (int)(timeElapsed * 10f);
+            if (animationProgress > sprites.Length - 1)
+            {
+                timeElapsed = 0;
+                animationProgress = 0;
+            }
+            sprite = sprites[animationProgress];
+
+            if(animationProgress == sprites.Length -1)
+            { //GameManager.RemoveObject(this);
+            }
+
         }
     }
 }

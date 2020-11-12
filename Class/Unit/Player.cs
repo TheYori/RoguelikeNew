@@ -11,6 +11,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
 using Environment = Roguelike.Class.Environment;
+using System.Diagnostics;
 
 namespace Roguelike
 {
@@ -41,7 +42,16 @@ namespace Roguelike
         // Fields for movements
         private bool jumpHeldDown;
         private bool jumpAllowed;
+        private bool isMoving;
 
+        //Field for animation
+        private float timeElapsed;
+        private int animationProgress = 0;
+       private float fps = 500;
+        private Texture2D spriteIdle;
+
+        private bool lifeTimerOn;
+        private float lifeTime = 2f;
         //bool dashHeldDown;
 
         public Player(MeleeWeapon myweapon)
@@ -57,7 +67,25 @@ namespace Roguelike
         public override void Update(GameTime gameTime)
         {
             //Visuals
-            Animate(gameTime);
+            //Animate(gameTime);
+            var delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (isMoving == true)
+            {
+                AnimateE(gameTime);
+            }
+
+            //if(lifeTimerOn == true)
+            //{
+            //    lifeTime -= delta;
+            //    Debug.Print(lifeTime.ToString());
+            //}
+
+            //if (lifeTime >= 0)
+            //{
+            //    lifeTime = 1f;
+            //    lifeTimerOn = false;
+            //    GameManager.RemoveObject(weapon);
+            //}
 
             //Movement
             HandleInput();
@@ -126,11 +154,15 @@ namespace Roguelike
                     jumpAllowed = false;
             }
             else
+                {
                 jumpHeldDown = false;
+                }
 
-            //if we press A
-            if (keyState.IsKeyDown(Keys.A))
+
+                //if we press A
+                if (keyState.IsKeyDown(Keys.A))
             {
+                isMoving = true;
                 isWeaponRight = false;
                 //move left
                 velocity += new Vector2(-1, 0);
@@ -138,14 +170,21 @@ namespace Roguelike
             }
 
             //if we press D
-            if (keyState.IsKeyDown(Keys.D))
+            else if (keyState.IsKeyDown(Keys.D))
             {
                 //move right
+                isMoving = true;
                 isWeaponRight = true;
                 
                 velocity += new Vector2(1, 0);
                 base.effects = SpriteEffects.None;
             }
+                else
+            {
+                isMoving = false;
+                sprite = spriteIdle;
+            }
+            
         }  //Left, Right, Jump
 
         private void Dash(GameTime gameTime)
@@ -202,9 +241,12 @@ namespace Roguelike
             }
             if (!keyState.IsKeyDown(Keys.Space) && spaceHeldDown == false)
             {
-                GameManager.RemoveObject(weapon);
+               // GameManager.RemoveObject(weapon);
                 spaceHeldDown = true;
             }
+
+             //GameManager.RemoveObject(weapon);
+            lifeTimerOn = true;
         }
 
         public override void Initialize()
@@ -233,14 +275,28 @@ namespace Roguelike
 
         }
 
+
+        protected void AnimateE(GameTime gameTime)
+        {
+            timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            animationProgress = (int)(timeElapsed * 35f);
+            if (animationProgress > sprites.Length - 1)
+            {
+                timeElapsed = 0;
+                animationProgress = 0;
+            }
+            sprite = sprites[animationProgress];
+
+        }
         public override void LoadContent(ContentManager content)
         {
             // Spawns weapon away from player
             spawnOffset = new Vector2(50, -105);
-            sprite = content.Load<Texture2D>("weaponRight");
+            sprite = content.Load<Texture2D>("1player_Idle");
+            spriteIdle = content.Load<Texture2D>("1player_Idle");
 
             //Instantiates the sprite array
-            sprites = new Texture2D[2];
+            sprites = new Texture2D[8];
 
             //Loads all sprites into the array
             for (int i = 0; i < sprites.Length; i++)

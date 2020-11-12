@@ -1,2 +1,7 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/Bruger/source/repos/RoguelikeNew/Content/Ground.png","C:/Users/Bruger/source/repos/RoguelikeNew/Content/bin/Windows/Ground.xnb","TextureProcessor","Texture2DContent",76178,675925,0,1776453
+"C:/Users/Bruger/source/repos/RoguelikeNew/Content/Weapon1.png","C:/Users/Bruger/source/repos/RoguelikeNew/Content/bin/Windows/Weapon1.xnb","TextureProcessor","Texture2DContent",17210,19685,0,1823849
+"C:/Users/Bruger/source/repos/RoguelikeNew/Content/Weapon2.png","C:/Users/Bruger/source/repos/RoguelikeNew/Content/bin/Windows/Weapon2.xnb","TextureProcessor","Texture2DContent",17843,19685,0,0256936
+"C:/Users/Bruger/source/repos/RoguelikeNew/Content/Weapon3.png","C:/Users/Bruger/source/repos/RoguelikeNew/Content/bin/Windows/Weapon3.xnb","TextureProcessor","Texture2DContent",18480,19685,0,0153547
+"C:/Users/Bruger/source/repos/RoguelikeNew/Content/Weapon4.png","C:/Users/Bruger/source/repos/RoguelikeNew/Content/bin/Windows/Weapon4.xnb","TextureProcessor","Texture2DContent",18586,19685,0,0134021
+"C:/Users/Bruger/source/repos/RoguelikeNew/Content/Weapon5.png","C:/Users/Bruger/source/repos/RoguelikeNew/Content/bin/Windows/Weapon5.xnb","TextureProcessor","Texture2DContent",18454,19685,0,0132743
+"C:/Users/Bruger/source/repos/RoguelikeNew/Content/Weapon6.png","C:/Users/Bruger/source/repos/RoguelikeNew/Content/bin/Windows/Weapon6.xnb","TextureProcessor","Texture2DContent",18203,19685,0,0134291
