@@ -170,7 +170,7 @@ namespace Roguelike
                 obj.Draw(_spriteBatch);
 
                 #if DEBUG
-                DrawCollisionBox(obj);
+               // DrawCollisionBox(obj);
                 #endif
             }
 

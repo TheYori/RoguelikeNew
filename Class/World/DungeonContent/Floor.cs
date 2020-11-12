@@ -33,14 +33,14 @@ namespace Roguelike.Class.World.DungeonContent
 
         public override void OnCollision(GameObject gameObject)
         {
-            if (gameObject is Unit)
+            if (gameObject is Player)
             {
 
                 if (CollisionBox.Bottom > gameObject.CollisionBox.Bottom)
                 {
              
 
-                    gameObject.velocity = new Vector2(velocity.X, 0f);
+                    gameObject.velocity = new Vector2(gameObject.velocity.X, 0f);
 
                     gameObject.position = new Vector2(gameObject.position.X, CollisionBox.Top);
 
