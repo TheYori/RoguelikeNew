@@ -7,10 +7,9 @@ using System.Text;
 
 namespace Roguelike.Class.UI
 {
-    class Counter : UIManager
+    public class Counter : UIManager
     {
         private bool rotating = true;
-        private int enemyLeft;
 
 
         public Counter(Vector2 Position, float scale, float rotation) : base(Position)
