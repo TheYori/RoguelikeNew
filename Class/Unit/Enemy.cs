@@ -194,7 +194,7 @@ namespace Roguelike.Class
                 Debug.Print(deathTime.ToString());
                 if (deathTime <= 0)
                 {
-                   
+                    GameManager.monsterUI.color = Color.White;
                     GameManager.RemoveObject(this);
                 }
                 
@@ -379,14 +379,22 @@ namespace Roguelike.Class
         /// </summary>
         public void EnemyDeath()
         {
+            GameManager.monsterUI.color = Color.Red;
+
             if (destroyedSoundPlayed == false)
             {
                 deathSound.Play();
                 destroyedSoundPlayed = true;
             }
             isMoving = false;
-           base.color = Color.Red;
+            base.color = Color.Red;
             base.Alpha -= 0.02f;
+            if (GameManager.monsterUI._scale > 0.2f)
+            {
+                GameManager.monsterUI._scale -= 0.01f;
+            }
+
+
 
         }
 
@@ -409,6 +417,7 @@ namespace Roguelike.Class
                 if(isEnemyDead == false)
                 {
                     GameManager.monstersLeft--;
+                    GameManager.monsterUI._scale = 0.3f;
                 }
 
 

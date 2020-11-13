@@ -33,8 +33,8 @@ namespace Roguelike
         private bool isWeaponRight;
         private SoundEffectInstance slashSound;
         private bool slashSoundPlayed;
+        
 
-        private BoostItem[] boostList;
         //Fields for sound and music
         public Song backgroundMusic;
         public SoundEffectInstance painSound;
@@ -52,6 +52,8 @@ namespace Roguelike
 
         private bool lifeTimerOn;
         private float lifeTime = 2f;
+        private BoostItem[] boostList;
+
         //bool dashHeldDown;
 
         public Player(MeleeWeapon myweapon)

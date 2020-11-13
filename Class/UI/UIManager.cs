@@ -7,13 +7,12 @@ using System.Text;
 
 namespace Roguelike.Class.UI
 {
-    class UIManager : GameObject
+    public class UIManager : GameObject
     {
         protected Vector2 _position;
         protected float layerDepth;
         protected Vector2 _origin = Vector2.Zero;
         protected SpriteEffects effect = new SpriteEffects();
-        protected SpriteFont _font;
 
         public UIManager(Vector2 Position)
         {
